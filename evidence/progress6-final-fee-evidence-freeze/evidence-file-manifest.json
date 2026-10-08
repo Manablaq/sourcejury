@@ -1,0 +1,556 @@
+{
+  "entries": [
+    {
+      "evidence_dir": "/Users/mralbert/Downloads/sourcejury-progress4-r6-live-deployment",
+      "files": [
+        {
+          "bytes": 1651,
+          "relative_path": "MUTATION_SEQUENCE_STARTED.json",
+          "sha256": "4dadff1f137d8e39011f30ec0c689723dccd41455e533afd1cd78a4b7eb72ad0"
+        },
+        {
+          "bytes": 117606,
+          "relative_path": "deploy-simulation.json",
+          "sha256": "5f0ce8f106f5b400acbc7a26d15c70a15eefb20de70f719b3e9dde6f2161eb3a"
+        },
+        {
+          "bytes": 247868,
+          "relative_path": "deployment-finalized-receipt.json",
+          "sha256": "d91c451fbe0eba53b54f783ff882a0ceb25d09ec276ab286f9ead924d91689ec"
+        },
+        {
+          "bytes": 1736,
+          "relative_path": "deployment-journal.json",
+          "sha256": "18af05c4044c52484a1f750d79e8f892790a141504a46210c91831f93b48881e"
+        },
+        {
+          "bytes": 359,
+          "relative_path": "funding.json",
+          "sha256": "c7bddc34c48a990d45dcb6b69e87d9c6e7d20a82e895a6c7d555b97811530545"
+        },
+        {
+          "bytes": 923,
+          "relative_path": "post-deploy-readbacks.json",
+          "sha256": "1662eaaed462f799c2a84adf4dc199ff442b25c7b1f6c45fe27f1b35b1938df7"
+        },
+        {
+          "bytes": 1128,
+          "relative_path": "preflight.json",
+          "sha256": "e612280f6f26a91fc128af144e895a5d95dbada282c2ce1b44cfc06cc1a8ae6d"
+        },
+        {
+          "bytes": 2302,
+          "relative_path": "progress4-summary.json",
+          "sha256": "5bee0905aaaaee19ae6ffb798d547f6cf107cf0bb3bc2c174df5e58cf905dee1"
+        },
+        {
+          "bytes": 2762,
+          "relative_path": "sourcejury-progress4-r6-run.log",
+          "sha256": "aad46b8fc2daf251e61e8a8c9c4870613d9707872316fa611f3200f1b4b0639c"
+        }
+      ],
+      "label": "deploy",
+      "seq": 1
+    },
+    {
+      "evidence_dir": "/Users/mralbert/Downloads/sourcejury-progress5-p2-create-case",
+      "files": [
+        {
+          "bytes": 15331,
+          "relative_path": "MUTATION_SEQUENCE_STARTED.json",
+          "sha256": "01fb1aa5aaeefe4040a50e6f7f855b95c536f72a593ae1f49ba0537d7852719d"
+        },
+        {
+          "bytes": 120668,
+          "relative_path": "create-case-finalized-receipt.json",
+          "sha256": "5883a59f2aaf37b0dc209de7cbac4dc0c1321a0453ac6960ffcfade226aaa912"
+        },
+        {
+          "bytes": 911,
+          "relative_path": "create-case-journal.json",
+          "sha256": "b6b7c0f748e8fe86c604789e8b0fa883428e0a64ddcf5359170bba38595c0f60"
+        },
+        {
+          "bytes": 14889,
+          "relative_path": "fresh-create-case-profile.json",
+          "sha256": "ae748c0cabbcc01b584f94725c10713ef31c55ee0c7130c1625e7c447aa3328e"
+        },
+        {
+          "bytes": 361,
+          "relative_path": "funding.json",
+          "sha256": "6e628c6204582c3d3e4f84b0e508f4330ff5f881d314c1ca716d0e215e426083"
+        },
+        {
+          "bytes": 976,
+          "relative_path": "preflight.json",
+          "sha256": "fa8a6d752ec80612c30a51eb045a2ab5a82838f603786ac958a8461167aabe13"
+        },
+        {
+          "bytes": 3005,
+          "relative_path": "sourcejury-progress5-p2-run.log",
+          "sha256": "b1d9f42f4703dba7f35b75de458e424f3df1f28138df45cdb78443d3de39ff45"
+        }
+      ],
+      "label": "create-case-a",
+      "seq": 2
+    },
+    {
+      "evidence_dir": "/Users/mralbert/Downloads/sourcejury-progress5-p2r1r2-readonly-recovery",
+      "files": [
+        {
+          "bytes": 205711,
+          "relative_path": "p2r1-readonly-recovery-summary.json",
+          "sha256": "49d71a0f5c4eafb1bdb1205206ad512cd7c9520537a5b31d86a3a91a42420e1c"
+        }
+      ],
+      "label": "create-case-a-recovery",
+      "seq": 2
+    },
+    {
+      "evidence_dir": "/Users/mralbert/Downloads/sourcejury-progress5-p3r4-evaluate-case1",
+      "files": [
+        {
+          "bytes": 14888,
+          "relative_path": "MUTATION_SEQUENCE_STARTED.json",
+          "sha256": "7f1f8def25e9971725e972cbcd8ba37be9a725635717aa621e581090d06317c5"
+        },
+        {
+          "bytes": 3575,
+          "relative_path": "evaluate-case1-finalized-readback.json",
+          "sha256": "b8da252f99d2b0e378fa11f9237373c00f81809bc0ed59ac795c024a61ba3dec"
+        },
+        {
+          "bytes": 151819,
+          "relative_path": "evaluate-case1-finalized-receipt.json",
+          "sha256": "5c0e1b1666f2a7dfd625e970a0c521023aa71eca52b365dd03dea57342a0b9fe"
+        },
+        {
+          "bytes": 740,
+          "relative_path": "evaluate-case1-journal.json",
+          "sha256": "bddd9b8eb2970b95ef03d75d643a9c256865d43d777c185757e1ee267a1c2123"
+        },
+        {
+          "bytes": 193130,
+          "relative_path": "evaluate-case1-studio-transaction.json",
+          "sha256": "0ee902835abe4f18f7ac388bdeb20fa210b83c539695c0cce9d837d34ba2dd46"
+        },
+        {
+          "bytes": 15059,
+          "relative_path": "fresh-authorized-evaluate-case1-profile.json",
+          "sha256": "1f684fed52a248a4f7c205bd2abfe34a26eeecb063a12377742bc8bf848ba1ec"
+        },
+        {
+          "bytes": 454,
+          "relative_path": "funding.json",
+          "sha256": "d2c65ec208ee690f231ef5fdf0e585250628220160aa4bdec48b72750734b145"
+        },
+        {
+          "bytes": 14846,
+          "relative_path": "next-frozen-operation-readonly-profile.json",
+          "sha256": "7a4848a26a6351264ac2edd044130045061e1d65a81ee5d78d16cadcc64bad4f"
+        },
+        {
+          "bytes": 1682,
+          "relative_path": "preflight.json",
+          "sha256": "fd19cbcc44615fac598ff7589982da52c2e7f39cd3933f464712a1bfbceeca69"
+        },
+        {
+          "bytes": 33622,
+          "relative_path": "progress5-p3r4-summary.json",
+          "sha256": "aba7ed46bc80c90d82a2bdecf94f22fb8c05f2d7863012488b6377b9f421de08"
+        },
+        {
+          "bytes": 6621,
+          "relative_path": "sourcejury-progress5-p3r4-run.log",
+          "sha256": "6cbdf9c619aa223151d9d96367b4cb440fc64460cc0b388de1c9a4a0ab907300"
+        }
+      ],
+      "label": "evaluate-case-a",
+      "seq": 3
+    },
+    {
+      "evidence_dir": "/Users/mralbert/Downloads/sourcejury-progress5-p4r2-create-case-b",
+      "files": [
+        {
+          "bytes": 14801,
+          "relative_path": "MUTATION_SEQUENCE_STARTED.json",
+          "sha256": "315c6636b7b312f36fcdca4137ff9efaf38efbaa92fd57f5f853e1995b3f1426"
+        },
+        {
+          "bytes": 2433,
+          "relative_path": "create-case-b-finalized-readback.json",
+          "sha256": "6967916260897531f048e1df4c2f4a5398bc3bde39847e4652d0fdc55f9f6b7c"
+        },
+        {
+          "bytes": 121870,
+          "relative_path": "create-case-b-finalized-receipt.json",
+          "sha256": "ecb8dff9c13bf75f1122b130d9764b92e5ddb184eb07b185fc92bcc8049854c2"
+        },
+        {
+          "bytes": 606,
+          "relative_path": "create-case-b-journal.json",
+          "sha256": "44acfaf854d2d13f6789bc1ec84dc7fc6cdc67f74a9b76216332f2a6a060bcb7"
+        },
+        {
+          "bytes": 192706,
+          "relative_path": "create-case-b-studio-transaction.raw.json",
+          "sha256": "a4e8a57efb50b514ffdb53733ea6ca43f6db566cadc23d61bf637ebdf4582aff"
+        },
+        {
+          "bytes": 14663,
+          "relative_path": "fresh-create-case-b-profile.json",
+          "sha256": "d1473a04cda11fec6b5f0c94aa455357a07b2a9e90aa979804dd42d5433af3ce"
+        },
+        {
+          "bytes": 389,
+          "relative_path": "funding.json",
+          "sha256": "a0f55e85d0d5cb4e570dfdc85e831dfa3c4646c02aed7e8ba4fa257676aa353d"
+        },
+        {
+          "bytes": 1707,
+          "relative_path": "preflight.json",
+          "sha256": "9630e79a445048b690ce97c5cdad5153005db50b196770512c68e2a40364a6fe"
+        },
+        {
+          "bytes": 5384,
+          "relative_path": "sourcejury-progress5-p4r2-run.log",
+          "sha256": "d77644087bd6be4967de6a56ace8e2bb0f164020028aa2439c9f8fc91a434b0b"
+        }
+      ],
+      "label": "create-case-b",
+      "seq": 4
+    },
+    {
+      "evidence_dir": "/Users/mralbert/Downloads/sourcejury-progress5-p4r3-readonly-recovery",
+      "files": [
+        {
+          "bytes": 3936,
+          "relative_path": "p4r3-readonly-recovery-complete-evaluate-b-variance.json",
+          "sha256": "019a5b4cd8741a50af86d1a937802c14177fe72f021e993946297bb605fc5fe0"
+        }
+      ],
+      "label": "create-case-b-recovery",
+      "seq": 4
+    },
+    {
+      "evidence_dir": "/Users/mralbert/Downloads/sourcejury-progress5-p5-evaluate-case-b",
+      "files": [
+        {
+          "bytes": 14667,
+          "relative_path": "MUTATION_SEQUENCE_STARTED.json",
+          "sha256": "ae44fe4dd0400050a7c0a5903b372e27f59943d2d3e17740b4f7289d55484158"
+        },
+        {
+          "bytes": 4065,
+          "relative_path": "evaluate-case-b-finalized-readback.json",
+          "sha256": "ef4eaad96d3c0513e81eae6d9cb6d1bdc2aa75278beb11264c5f460ead2eb214"
+        },
+        {
+          "bytes": 148483,
+          "relative_path": "evaluate-case-b-finalized-receipt.json",
+          "sha256": "534281355a3f8617695fb5289b6d1d585401fca39a9369500387ec5a109bc882"
+        },
+        {
+          "bytes": 472,
+          "relative_path": "evaluate-case-b-journal.json",
+          "sha256": "70f73002edb80132ff10918bca225bb3d0b8ef126ebd400d5b757d05e5e54c1b"
+        },
+        {
+          "bytes": 207703,
+          "relative_path": "evaluate-case-b-studio-transaction.raw.json",
+          "sha256": "8dfb1b729c15c9701a7da99facbc7c3fb9758f1185edddb599a18c0c4617699d"
+        },
+        {
+          "bytes": 15062,
+          "relative_path": "fresh-evaluate-case-b-profile.json",
+          "sha256": "e47182107b9c15f5b1ce817b006c144d048723c42dde7c844ca977a37cc69fbe"
+        },
+        {
+          "bytes": 387,
+          "relative_path": "funding.json",
+          "sha256": "46f5b0aee2cad27f71061c475763aeeb1455b3e94b04579d693d50b4effe57e2"
+        },
+        {
+          "bytes": 2733,
+          "relative_path": "next-frozen-operation-readonly-variance.json",
+          "sha256": "6af77daa14ed4fa6dd8069bf25fe88faba46cc297f511d9f02c59ebaa9dba558"
+        },
+        {
+          "bytes": 2497,
+          "relative_path": "preflight.json",
+          "sha256": "770c88dfe52067007c01fe8664d170b962d736d42d0c21de92d33e769181096d"
+        },
+        {
+          "bytes": 21389,
+          "relative_path": "progress5-p5-summary.json",
+          "sha256": "6277bbcc3700032f5b647237fd7355f29fb35ba57b6b02066709f7a8b3f2578b"
+        },
+        {
+          "bytes": 7251,
+          "relative_path": "sourcejury-progress5-p5-run.log",
+          "sha256": "20ad27f763bd19df1a54d7126249f08ad9974ae3d8802a69c65bc9a988642c74"
+        }
+      ],
+      "label": "evaluate-case-b",
+      "seq": 5
+    },
+    {
+      "evidence_dir": "/Users/mralbert/Downloads/sourcejury-progress5-p6-create-case-c",
+      "files": [
+        {
+          "bytes": 14775,
+          "relative_path": "MUTATION_SEQUENCE_STARTED.json",
+          "sha256": "8a244030cbfdcca2428a20fcb88131babf97aec6933751887b15474d944119e0"
+        },
+        {
+          "bytes": 3400,
+          "relative_path": "create-case-c-finalized-readback.json",
+          "sha256": "c97e8bb4265cdf2a78adbc6b22f706c0198f52e31782ff5766beec9441bfed10"
+        },
+        {
+          "bytes": 120331,
+          "relative_path": "create-case-c-finalized-receipt.json",
+          "sha256": "7bca3c6155db96e1cd6848c67bf0cc7739c2147a1cf7c09804adf411ba7013d7"
+        },
+        {
+          "bytes": 594,
+          "relative_path": "create-case-c-journal.json",
+          "sha256": "4c74cc3194ea34ba897ce4c52823a40faf8b1f62823995d00fa3ab5f0b3c42f0"
+        },
+        {
+          "bytes": 195532,
+          "relative_path": "create-case-c-studio-transaction.raw.json",
+          "sha256": "3dcc207a06039ed2d7b7bf894cf5697f3fe5c0cd4213cfdb0bd0bcf77ad04f0a"
+        },
+        {
+          "bytes": 2826,
+          "relative_path": "evaluate-case-c-readonly-fee-variance.json",
+          "sha256": "f8709f1834113fe88b37663edcdba1be3eb3fc05eebe61318cca2fffc5aa72f9"
+        },
+        {
+          "bytes": 14911,
+          "relative_path": "fresh-create-case-c-profile.json",
+          "sha256": "79590ef43520b670405b23e3ca5e996d0ee3d5458a91c2463498917d8e69ecde"
+        },
+        {
+          "bytes": 387,
+          "relative_path": "funding.json",
+          "sha256": "6960a4066b46b421adb1984402f617d82fe67204e2e15d82c3a0c72eebc2886d"
+        },
+        {
+          "bytes": 2698,
+          "relative_path": "preflight.json",
+          "sha256": "1949f299e0503973ff733948fac864503e9bb8481133c1027a315fc7529132fc"
+        },
+        {
+          "bytes": 6858,
+          "relative_path": "progress5-p6-summary.json",
+          "sha256": "63d4294d84cb53bc84007a3b5f23fb22f3694b679dbb5f13e1c1ac4dd9e5730e"
+        },
+        {
+          "bytes": 5824,
+          "relative_path": "sourcejury-progress5-p6-run.log",
+          "sha256": "36ad8f2a426e8558fc201089e4e1f6e69c8da3f209bae9e5e4b515da7caf8e76"
+        }
+      ],
+      "label": "create-case-c",
+      "seq": 6
+    },
+    {
+      "evidence_dir": "/Users/mralbert/Downloads/sourcejury-progress5-p7-evaluate-case-c",
+      "files": [
+        {
+          "bytes": 14667,
+          "relative_path": "MUTATION_SEQUENCE_STARTED.json",
+          "sha256": "a36d25ea5391bf15e5ae3883395a1285940c46782797101214ffa84f3263a5a8"
+        },
+        {
+          "bytes": 5030,
+          "relative_path": "evaluate-case-c-finalized-readback.json",
+          "sha256": "a7d2193a9a82987f7e7ce0c57c5f63b4728dd1a52c12072482d3375caaa0c838"
+        },
+        {
+          "bytes": 157018,
+          "relative_path": "evaluate-case-c-finalized-receipt.json",
+          "sha256": "3a00defbf097c1e7fbc9c27912c063aabe84355d355a1eeecb586429a5971f3d"
+        },
+        {
+          "bytes": 472,
+          "relative_path": "evaluate-case-c-journal.json",
+          "sha256": "b62b31ea1eaa8ea2b8a212d46380982c7f27ce35f750d32b0e273278ff1e8144"
+        },
+        {
+          "bytes": 202785,
+          "relative_path": "evaluate-case-c-studio-transaction.raw.json",
+          "sha256": "65c3eec993dde0a1a0f484631967dc4e47fb7af87180e259fd5c5e51062c44a0"
+        },
+        {
+          "bytes": 15062,
+          "relative_path": "fresh-evaluate-case-c-profile.json",
+          "sha256": "62bcf96fcc97f9006376c0264b5b16e388e1d9476009300c024a49fe3fcb9888"
+        },
+        {
+          "bytes": 387,
+          "relative_path": "funding.json",
+          "sha256": "a14b08cf5793c616602bb95c493e09e285ad17ef4631e55339c600b048537e56"
+        },
+        {
+          "bytes": 2811,
+          "relative_path": "open-challenge-a-readonly-fee-variance.json",
+          "sha256": "37f9d0e475251206d0e63f959c48e4372f149138db0ac3b23d10bbb3712be48a"
+        },
+        {
+          "bytes": 3466,
+          "relative_path": "preflight.json",
+          "sha256": "9565231003883d267f96bcaca4650ecc7559f7a0202c2d5cbf2922362dd3b337"
+        },
+        {
+          "bytes": 22384,
+          "relative_path": "progress5-p7-summary.json",
+          "sha256": "97eb8bd2e802390e714fa452387960f9cbda2e5626d3fb40febee881dedf5a43"
+        },
+        {
+          "bytes": 7831,
+          "relative_path": "sourcejury-progress5-p7-run.log",
+          "sha256": "de39978d3eb079d69eb0af631a147d0c3e50e8b9c6d689f16b8834ec8d6ab5ae"
+        }
+      ],
+      "label": "evaluate-case-c",
+      "seq": 7
+    },
+    {
+      "evidence_dir": "/Users/mralbert/Downloads/sourcejury-progress5-p8-open-challenge-a",
+      "files": [
+        {
+          "bytes": 14867,
+          "relative_path": "MUTATION_SEQUENCE_STARTED.json",
+          "sha256": "d0931ef6b348c66af7c897e0139756527ea419495c0a6d309d146bdfa28b3252"
+        },
+        {
+          "bytes": 15003,
+          "relative_path": "fresh-open-challenge-a-profile.json",
+          "sha256": "30e2d379c5f2a246189a01b3b5b0f49e46774013f8148657c7222235984ddee0"
+        },
+        {
+          "bytes": 387,
+          "relative_path": "funding.json",
+          "sha256": "a3f91dca0fa55894a644f35ad1e341299af6a7a262d1253a166c6859efc00cc4"
+        },
+        {
+          "bytes": 119249,
+          "relative_path": "open-challenge-a-finalized-receipt.json",
+          "sha256": "3ce93a80483668c3463e7f660c260254d575ae8ddf4b01e41573dcb6e4aa7134"
+        },
+        {
+          "bytes": 682,
+          "relative_path": "open-challenge-a-journal.json",
+          "sha256": "f17b60e47c5bf632ae70947d89dc3b2f6b92c31ea5f93b86e049a51c6060595c"
+        },
+        {
+          "bytes": 200039,
+          "relative_path": "open-challenge-a-studio-transaction.raw.json",
+          "sha256": "d7ca3eab9c6493f2378421672254628ab2c2c938edf8c7edd1f682935b0ac2bc"
+        },
+        {
+          "bytes": 3677,
+          "relative_path": "preflight.json",
+          "sha256": "6ed2183c8bc6650bc3dc2792d451fbb2500a2be6aadf6240fa571e943bc207ce"
+        },
+        {
+          "bytes": 3295,
+          "relative_path": "sourcejury-progress5-p8-run.log",
+          "sha256": "4671030bb57d8711514c74caeee2fe7f99e5a49a200d627d7bd55e9f531b3779"
+        }
+      ],
+      "label": "open-challenge-a",
+      "seq": 8
+    },
+    {
+      "evidence_dir": "/Users/mralbert/Downloads/sourcejury-progress5-p8r1-readonly-recovery",
+      "files": [
+        {
+          "bytes": 4310,
+          "relative_path": "p8r1-finalized-recovery-readback.json",
+          "sha256": "d8452a1fc75755056642a3be392f8a2fef480ae76503fb18c4ce25976acd7942"
+        },
+        {
+          "bytes": 7718,
+          "relative_path": "progress5-p8r1-summary.json",
+          "sha256": "0acd451f6b961edcb26048c3b05dfb623d5171e7d7a207786396b4d1f1d5c151"
+        },
+        {
+          "bytes": 2805,
+          "relative_path": "resolve-challenge-a-readonly-fee-variance.json",
+          "sha256": "abeff558c30b249179625adab06860ef2c9158624be80858598f592c3a92c7bc"
+        },
+        {
+          "bytes": 4261,
+          "relative_path": "sourcejury-progress5-p8r1-run.log",
+          "sha256": "0b86c842f0af60787f83f757e3ef56dc4ff3813d6018b058ee6b6cd490f29f97"
+        }
+      ],
+      "label": "open-challenge-a-recovery",
+      "seq": 8
+    },
+    {
+      "evidence_dir": "/Users/mralbert/Downloads/sourcejury-progress5-p9-resolve-challenge-a",
+      "files": [
+        {
+          "bytes": 14672,
+          "relative_path": "MUTATION_SEQUENCE_STARTED.json",
+          "sha256": "99c616975c6177557c7adfce18f72502f10f37b207f2f3026b9240bd09633d7e"
+        },
+        {
+          "bytes": 15075,
+          "relative_path": "fresh-resolve-challenge-a-profile.json",
+          "sha256": "bda0cea954e291cadacebdb0700cfc24b3ada3046f66532f0b81e385c0e6fdd2"
+        },
+        {
+          "bytes": 387,
+          "relative_path": "funding.json",
+          "sha256": "fbef696ee3ad2c2e6ad129535fbd2131dc1536e918f59ee5c3a986f20ce6a2d2"
+        },
+        {
+          "bytes": 4127,
+          "relative_path": "preflight.json",
+          "sha256": "23d941d774b0013198ad0217370fc90b0aa1014bca3ab8bec756e47bd63a9098"
+        },
+        {
+          "bytes": 20393,
+          "relative_path": "progress5-p9-summary.json",
+          "sha256": "0e0ebe1b850fceb149af811efeb5c074c6c5d39e0e9f0105e079911d2317b17a"
+        },
+        {
+          "bytes": 5586,
+          "relative_path": "resolve-challenge-a-finalized-readback.json",
+          "sha256": "d64c86eb0fa1dee73963d0675fc9ac9f8d3c2a943d8692add5f5ac8f04d22429"
+        },
+        {
+          "bytes": 153671,
+          "relative_path": "resolve-challenge-a-finalized-receipt.json",
+          "sha256": "a2715e22ade2826ac6ae7f6ac31e637c5199750db88bf83b151b13a2b9773230"
+        },
+        {
+          "bytes": 484,
+          "relative_path": "resolve-challenge-a-journal.json",
+          "sha256": "7142f99dc8760bc099420388b617c359082eb47f5a0edfa93c3fa759c6a2ba89"
+        },
+        {
+          "bytes": 214933,
+          "relative_path": "resolve-challenge-a-studio-transaction.raw.json",
+          "sha256": "a2740a0806dbb3e54c9cd06cf14b26d1eddf869aeec70b5caa1184d4e0476d4d"
+        },
+        {
+          "bytes": 5477,
+          "relative_path": "sourcejury-progress5-p9-run.log",
+          "sha256": "282550b0dd69a3b6909f44812d7d25e0da1954c452918edffd4c4d214e9f2936"
+        }
+      ],
+      "label": "resolve-challenge-a",
+      "seq": 9
+    }
+  ],
+  "private_signer_included": false,
+  "schema": "sourcejury-progress6-evidence-file-manifest-v1",
+  "timestamp": "2026-10-08T10:56:13.070565+00:00"
+}

@@ -1,0 +1,41 @@
+{
+  "files": [
+    {
+      "bytes": 4653,
+      "file": "decoded-finalized-returns.json",
+      "sha256": "fd98ea53e9d9078a4bd0d8b2faeac923b4cfb7ee8a131ce4cef48db44987022d"
+    },
+    {
+      "bytes": 20400,
+      "file": "evidence-file-manifest.json",
+      "sha256": "4c0574a1d59544fa41305a6ca6c75d855938b3689fe665576ea1e5489dc40ef6"
+    },
+    {
+      "bytes": 7818,
+      "file": "final-fee-evidence-certification.json",
+      "sha256": "74d0f8c8ffc7718d894516bc98ec9d2fbe833e9a21681f2f6bb08caf731d343d"
+    },
+    {
+      "bytes": 4657,
+      "file": "final-live-state.json",
+      "sha256": "1c01fcdaa2a48a43ee52d3ccae144a8224a6bce7cb252ed4577784781771bcdf"
+    },
+    {
+      "bytes": 6248,
+      "file": "lifecycle-operation-reconciliation.json",
+      "sha256": "fec6364816d1b5bc2f69588ee2db5da5f0a15f08533d65b64cd7a27e7fafb508"
+    },
+    {
+      "bytes": 1639,
+      "file": "nonce-write-count-reconciliation.json",
+      "sha256": "2ed0b1c243f34e61e309dcb6b7933f29219587373dbd3af31a92af93d844b2f3"
+    },
+    {
+      "bytes": 1918692,
+      "file": "studio-finalized-transactions.raw.json",
+      "sha256": "4d0b61beebee9b5cc249c0820b39234db224c6cb48a834e2632ddd83529740ea"
+    }
+  ],
+  "schema": "sourcejury-progress6-output-manifest-v1",
+  "timestamp": "2026-10-08T10:56:35.750092+00:00"
+}

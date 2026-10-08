@@ -1,0 +1,168 @@
+{
+  "chain_id": 61997,
+  "contract": "0x2E8968E2a47ED96dE89D83061190314d24719929",
+  "operations": [
+    {
+      "account": "0xB46f84842fBDEC2AB98563eBe036B65bD52F4e50",
+      "evidence_dir": "/Users/mralbert/Downloads/sourcejury-progress4-r6-live-deployment",
+      "executionBudgetPerRound": 94863000000000,
+      "feeValue": 94863000002588,
+      "finalized": true,
+      "fundedWei": 94863000002588,
+      "fundingResult": "0xb13584a39d3fad0344ac66540085c467eee521b1f2bb870ae75ce1a0270bd769",
+      "label": "deploy",
+      "method": "deploy_contract",
+      "recovery_dirs": [],
+      "rotations": [
+        0
+      ],
+      "seq": 1,
+      "tx": "0xe98de10c22d0e31fabf05175f57f1441ee24717149e6ec001f40ffbf2c17bc54"
+    },
+    {
+      "account": "0x3BFAcDD3cf93b3d49Aa22CD4ab8261B8f742BBf1",
+      "evidence_dir": "/Users/mralbert/Downloads/sourcejury-progress5-p2-create-case",
+      "executionBudgetPerRound": 94634100000000,
+      "feeValue": 378536400010352,
+      "finalized": true,
+      "fundedWei": 378536400010352,
+      "fundingResult": "0xe3a8c37273b8f298939a2fc633afc6168b46bc4d3c636f3c9717853e0845300e",
+      "label": "create-case-a",
+      "method": "create_case",
+      "recovery_dirs": [
+        "/Users/mralbert/Downloads/sourcejury-progress5-p2r1r2-readonly-recovery"
+      ],
+      "rotations": [
+        3
+      ],
+      "seq": 2,
+      "tx": "0x9fd0828cafeb3f3144f9504635c4756e0de12ee3e2703ffdcfb60e84c4010439"
+    },
+    {
+      "account": "0x3BFAcDD3cf93b3d49Aa22CD4ab8261B8f742BBf1",
+      "evidence_dir": "/Users/mralbert/Downloads/sourcejury-progress5-p3r4-evaluate-case1",
+      "executionBudgetPerRound": 96461400000000,
+      "feeValue": 385845600010352,
+      "finalized": true,
+      "fundedWei": 85946950000823,
+      "fundingResult": "0x50bca24499617b93f94ad285041faf4d3698b92c8cc0f2c839442af811347236",
+      "label": "evaluate-case-a",
+      "method": "evaluate_case",
+      "recovery_dirs": [],
+      "rotations": [
+        3
+      ],
+      "seq": 3,
+      "tx": "0xe56a345f607b2aab9ce69eaacd6f1fd54e64a9048a79f0eea589b7f622062788"
+    },
+    {
+      "account": "0x3BFAcDD3cf93b3d49Aa22CD4ab8261B8f742BBf1",
+      "evidence_dir": "/Users/mralbert/Downloads/sourcejury-progress5-p4r2-create-case-b",
+      "executionBudgetPerRound": 94632000000000,
+      "feeValue": 378528000010352,
+      "finalized": true,
+      "fundedWei": 73728400000823,
+      "fundingResult": "0x48f5df7298629d1c40f8a08e7e557a81de494998fccb0f0c362d407d421bff01",
+      "label": "create-case-b",
+      "method": "create_case",
+      "recovery_dirs": [
+        "/Users/mralbert/Downloads/sourcejury-progress5-p4r3-readonly-recovery"
+      ],
+      "rotations": [
+        3
+      ],
+      "seq": 4,
+      "tx": "0x497923f60afd98178ff3cae56ca3ea2ace1272f7acf0bcca9f61a74a7af58762"
+    },
+    {
+      "account": "0x3BFAcDD3cf93b3d49Aa22CD4ab8261B8f742BBf1",
+      "evidence_dir": "/Users/mralbert/Downloads/sourcejury-progress5-p5-evaluate-case-b",
+      "executionBudgetPerRound": 96272400000000,
+      "feeValue": 385089600010352,
+      "finalized": true,
+      "fundedWei": 85197600000823,
+      "fundingResult": "0x02d37b83e739510bf1037a38e38669d4a94451d04804193e251d969675ac19c6",
+      "label": "evaluate-case-b",
+      "method": "evaluate_case",
+      "recovery_dirs": [],
+      "rotations": [
+        3
+      ],
+      "seq": 5,
+      "tx": "0x0657fa7675dc397acbe27a9c53f6bc284e56ca26b3c32c0f10eae74615e10687"
+    },
+    {
+      "account": "0x3BFAcDD3cf93b3d49Aa22CD4ab8261B8f742BBf1",
+      "evidence_dir": "/Users/mralbert/Downloads/sourcejury-progress5-p6-create-case-c",
+      "executionBudgetPerRound": 94632600000000,
+      "feeValue": 378530400010352,
+      "finalized": true,
+      "fundedWei": 73443800000823,
+      "fundingResult": "0x8522a48477c418dcfd62214040d46a79f04941a14083cd02792dc24c4234aa66",
+      "label": "create-case-c",
+      "method": "create_case",
+      "recovery_dirs": [],
+      "rotations": [
+        3
+      ],
+      "seq": 6,
+      "tx": "0xae5a33c1715a36a593c9a02c8fc6aefa69c529fd8e5abd73752f424686506e7d"
+    },
+    {
+      "account": "0x3BFAcDD3cf93b3d49Aa22CD4ab8261B8f742BBf1",
+      "evidence_dir": "/Users/mralbert/Downloads/sourcejury-progress5-p7-evaluate-case-c",
+      "executionBudgetPerRound": 96546300000000,
+      "feeValue": 386185200010352,
+      "finalized": true,
+      "fundedWei": 86291300000823,
+      "fundingResult": "0xa2db77b162549aa88fad3953db88e9083ec1fac51610ccec94688716557855b4",
+      "label": "evaluate-case-c",
+      "method": "evaluate_case",
+      "recovery_dirs": [],
+      "rotations": [
+        3
+      ],
+      "seq": 7,
+      "tx": "0x1e94f59d93a46883a8f872074760e583e4997f7dacae3c09de085c1e512dee71"
+    },
+    {
+      "account": "0x3BFAcDD3cf93b3d49Aa22CD4ab8261B8f742BBf1",
+      "evidence_dir": "/Users/mralbert/Downloads/sourcejury-progress5-p8-open-challenge-a",
+      "executionBudgetPerRound": 94641600000000,
+      "feeValue": 378566400010352,
+      "finalized": true,
+      "fundedWei": 72432200000823,
+      "fundingResult": "0x2c65ccecdff4ac8b5e68beae6ac6c804de79d135d23dbda88183fdb1ecc2bf3f",
+      "label": "open-challenge-a",
+      "method": "open_challenge",
+      "recovery_dirs": [
+        "/Users/mralbert/Downloads/sourcejury-progress5-p8r1-readonly-recovery"
+      ],
+      "rotations": [
+        3
+      ],
+      "seq": 8,
+      "tx": "0x6182ff18c42ffb71a9b85f11b7760f62a56190c785a63c0f897bf08e35d1a0d6"
+    },
+    {
+      "account": "0x3BFAcDD3cf93b3d49Aa22CD4ab8261B8f742BBf1",
+      "evidence_dir": "/Users/mralbert/Downloads/sourcejury-progress5-p9-resolve-challenge-a",
+      "executionBudgetPerRound": 96167700000000,
+      "feeValue": 384670800010352,
+      "finalized": true,
+      "fundedWei": 84748400000823,
+      "fundingResult": "0x268df69cc683f03e9efaa82bccf7e3b2a6919609771cf2d65e0be4a8a5313427",
+      "label": "resolve-challenge-a",
+      "method": "resolve_challenge",
+      "recovery_dirs": [],
+      "rotations": [
+        3
+      ],
+      "seq": 9,
+      "tx": "0xc60da60847a7ea2d5a987a1d2176a0bc4ee940ed904d07bd3613749b3489b044"
+    }
+  ],
+  "rpc": "https://studio-dev.genlayer.com/api",
+  "schema": "sourcejury-progress6-lifecycle-operation-reconciliation-v1",
+  "timestamp": "2026-10-08T10:56:35.742279+00:00"
+}

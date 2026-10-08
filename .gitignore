@@ -1,0 +1,52 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+artifacts/*
+!artifacts/.gitkeep
+
+# SOURCEJURY_REPOSITORY_SAFETY_V1
+
+# Python environments / generated state
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# JavaScript generated state
+node_modules/
+.next/
+dist/
+build/
+coverage/
+
+# Local OS/editor state
+.DS_Store
+.idea/
+.vscode/
+
+# Environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+
+# SourceJury lifecycle secrets — NEVER COMMIT
+lifecycle-signer.json
+sourcejury-progress5-private/
+**/sourcejury-progress5-private/
+**/lifecycle-signer.json
+
+# Temporary files
+*.tmp
+*.swp

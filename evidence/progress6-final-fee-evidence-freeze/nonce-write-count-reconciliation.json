@@ -1,0 +1,64 @@
+{
+  "baseline_nonce": 0,
+  "expected_nonce_progression": [
+    {
+      "after": 1,
+      "before": 0,
+      "label": "create-case-a",
+      "seq": 2,
+      "tx": "0x9fd0828cafeb3f3144f9504635c4756e0de12ee3e2703ffdcfb60e84c4010439"
+    },
+    {
+      "after": 2,
+      "before": 1,
+      "label": "evaluate-case-a",
+      "seq": 3,
+      "tx": "0xe56a345f607b2aab9ce69eaacd6f1fd54e64a9048a79f0eea589b7f622062788"
+    },
+    {
+      "after": 3,
+      "before": 2,
+      "label": "create-case-b",
+      "seq": 4,
+      "tx": "0x497923f60afd98178ff3cae56ca3ea2ace1272f7acf0bcca9f61a74a7af58762"
+    },
+    {
+      "after": 4,
+      "before": 3,
+      "label": "evaluate-case-b",
+      "seq": 5,
+      "tx": "0x0657fa7675dc397acbe27a9c53f6bc284e56ca26b3c32c0f10eae74615e10687"
+    },
+    {
+      "after": 5,
+      "before": 4,
+      "label": "create-case-c",
+      "seq": 6,
+      "tx": "0xae5a33c1715a36a593c9a02c8fc6aefa69c529fd8e5abd73752f424686506e7d"
+    },
+    {
+      "after": 6,
+      "before": 5,
+      "label": "evaluate-case-c",
+      "seq": 7,
+      "tx": "0x1e94f59d93a46883a8f872074760e583e4997f7dacae3c09de085c1e512dee71"
+    },
+    {
+      "after": 7,
+      "before": 6,
+      "label": "open-challenge-a",
+      "seq": 8,
+      "tx": "0x6182ff18c42ffb71a9b85f11b7760f62a56190c785a63c0f897bf08e35d1a0d6"
+    },
+    {
+      "after": 8,
+      "before": 7,
+      "label": "resolve-challenge-a",
+      "seq": 9,
+      "tx": "0xc60da60847a7ea2d5a987a1d2176a0bc4ee940ed904d07bd3613749b3489b044"
+    }
+  ],
+  "extra_lifecycle_signer_nonce_consumption_detected": false,
+  "final_nonce": 8,
+  "known_finalized_lifecycle_write_count": 8
+}

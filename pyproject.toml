@@ -1,0 +1,6 @@
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+markers = [
+  "studio_next: performs live Studio Next writes and requires explicit authorization",
+]

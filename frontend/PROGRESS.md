@@ -1,6 +1,16 @@
 # SourceJury frontend release record
 
-SourceJury is implemented against the certified GenLayer Studio Devnet backend and has completed local runtime validation, finalized-read verification, wallet/write-safety hardening, and cross-browser browser QA before production deployment.
+SourceJury is implemented against the certified GenLayer Studio Devnet backend and has completed all seven frontend release stages, including production deployment and the final production browser audit.
+
+## Final status
+
+- Frontend progress: `7/7 COMPLETE`
+- Production URL: `https://sourcejury.vercel.app`
+- Vercel project ID: `prj_EKEh2yKQ1l5YRgbhWfortzgw4w8M`
+- Vercel deployment ID: `dpl_w8AnszLENYfpMqJMxAak3K3CJh1c`
+- Deployment state: `READY`
+- Production deployment count at certification: `1`
+- Deployed release commit: `7f82ba6b454e9d2473ba6c7e821f2952a42f67dc`
 
 ## Verified application surface
 
@@ -20,32 +30,33 @@ SourceJury is implemented against the certified GenLayer Studio Devnet backend a
 ## Certified network binding
 
 - Network: GenLayer Studio Devnet
-- Chain ID: 61997
-- RPC: https://studio-dev.genlayer.com/api
-- Contract: 0x2E8968E2a47ED96dE89D83061190314d24719929
-- Finalized reads: TransactionHashVariant.LATEST_FINAL
+- Chain ID: `61997`
+- RPC: `https://studio-dev.genlayer.com/api`
+- Explorer: `https://explorer-studio-dev.genlayer.com`
+- Contract: `0x2E8968E2a47ED96dE89D83061190314d24719929`
+- Finalized reads: `TransactionHashVariant.LATEST_FINAL`
 
 The frontend is bound to the certified SourceJury backend contract and does not substitute locally fabricated verdicts when live RPC reads fail.
 
 ## Certified browser QA
 
-The release candidate has been exercised in Chromium, Firefox, and WebKit.
+The release candidate was exercised in Chromium, Firefox, and WebKit.
 
-The certification covers:
+Certification covered:
 
-- live finalized explorer state;
-- live case-detail state;
-- mock EIP-6963 / EIP-1193 wallet flow;
-- network switching;
-- transaction-review cancellation without submission;
-- keyboard navigation;
-- mobile navigation;
-- responsive overflow;
-- reduced-motion behavior;
-- scroll-reveal behavior;
-- automated accessibility analysis.
+- live finalized explorer state
+- live case-detail state
+- mock EIP-6963 / EIP-1193 wallet flow
+- network switching
+- transaction-review cancellation without submission
+- keyboard navigation
+- mobile navigation
+- responsive overflow
+- reduced-motion behavior
+- scroll-reveal behavior
+- automated accessibility analysis
 
-The certified browser run produced 12 accessibility reports with zero serious or critical accessibility violations. Known GenLayer Studio Devnet transport-capacity conditions are recorded separately from frontend application failures and do not replace the mandatory finalized-state assertions.
+The certified cross-browser run produced 12 accessibility reports with zero serious or critical accessibility violations. Known GenLayer Studio Devnet transport-capacity conditions were recorded separately from frontend application failures and did not replace mandatory finalized-state assertions.
 
 ## Safety boundary
 
@@ -62,15 +73,36 @@ From the `frontend` directory:
 ```bash
 npm ci
 npm run typecheck
-npm run build
 npm run test:write-safety
+npm run build
 npm run test:e2e
 ```
 
+The write-safety suite passed 11/11.
+
 The browser suite uses an injected mock wallet for write-flow interaction testing and intentionally does not click the final write-confirmation action.
 
-## Release boundary
+## Production certification
 
-The frontend has not been deployed to Vercel during this certification workflow.
+The single authorized production deployment completed successfully and reached `READY`.
 
-Production deployment and the post-deployment final frontend audit are the remaining release actions. They must preserve the certified backend contract address, Studio Devnet binding, wallet-safety behavior, and finalized-read semantics.
+The final browser audit verified:
+
+- `/` -> HTTP 200
+- `/docs` -> HTTP 200
+- `/explorer` -> HTTP 200
+- `/cases/1` -> HTTP 200
+- finalized explorer case count -> `3`
+- case 1 effective verdict -> `SUPPORTED`
+- desktop horizontal overflow -> `NO`
+- recoverable production transport errors -> `0`
+- unexpected production browser application errors -> `0`
+- production runtime errors reported by Vercel -> `0`
+
+No additional Git commit, Git push, Vercel deployment, blockchain write, live transaction, signing, funding, backend-contract change, or backend-config change occurred during the final production audit.
+
+## Release result
+
+`SOURCEJURY_FRONTEND_STATUS=COMPLETE`
+
+The production frontend is live at `https://sourcejury.vercel.app` and is bound to release commit `7f82ba6b454e9d2473ba6c7e821f2952a42f67dc`.

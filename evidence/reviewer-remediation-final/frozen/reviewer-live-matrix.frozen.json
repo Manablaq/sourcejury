@@ -1,0 +1,118 @@
+{
+  "frontendBaseUrl": "https://sourcejury.vercel.app",
+  "network": {
+    "chainId": 61997,
+    "name": "GenLayer Studio Devnet",
+    "rpc": "https://studio-dev.genlayer.com/api"
+  },
+  "orderedWrites": [
+    [
+      "A",
+      "create_case"
+    ],
+    [
+      "A",
+      "evaluate_case"
+    ],
+    [
+      "A",
+      "open_challenge"
+    ],
+    [
+      "A",
+      "resolve_challenge"
+    ],
+    [
+      "B",
+      "create_case"
+    ],
+    [
+      "B",
+      "evaluate_case"
+    ],
+    [
+      "C",
+      "create_case"
+    ],
+    [
+      "C",
+      "evaluate_case"
+    ],
+    [
+      "D",
+      "create_case"
+    ],
+    [
+      "D",
+      "evaluate_case"
+    ],
+    [
+      "D",
+      "open_challenge"
+    ],
+    [
+      "D",
+      "resolve_challenge"
+    ]
+  ],
+  "releaseCommit": "82efeb441ce20484e72518382bda1a175facf9d4",
+  "scenarios": [
+    {
+      "claim": "Reviewer fixture A reports status ENABLED.",
+      "counterUrl": "https://sourcejury.vercel.app/reviewer-fixtures/case-a-counter-support.txt",
+      "expected": {
+        "challengeOutcome": "REJECTED",
+        "counterAssessment": "SUPPORTS",
+        "effectiveVerdict": "SUPPORTED",
+        "initialVerdict": "SUPPORTED"
+      },
+      "id": "A",
+      "policy": "DIRECT_SOURCE_V1",
+      "primaryUrl": "https://raw.githubusercontent.com/Manablaq/sourcejury/82efeb441ce20484e72518382bda1a175facf9d4/reviewer-fixtures/case-a-primary-support.txt",
+      "purpose": "SUPPORTED case plus rejected challenge"
+    },
+    {
+      "claim": "Reviewer fixture B reports status ENABLED.",
+      "corroboratingUrl": "https://sourcejury.vercel.app/reviewer-fixtures/case-b-conflict-contradict.txt",
+      "expected": {
+        "corroboratingAssessment": "CONTRADICTS",
+        "effectiveVerdict": "INSUFFICIENT",
+        "primaryAssessment": "SUPPORTS",
+        "sourceConflict": true
+      },
+      "id": "B",
+      "policy": "CORROBORATED_V1",
+      "primaryUrl": "https://raw.githubusercontent.com/Manablaq/sourcejury/82efeb441ce20484e72518382bda1a175facf9d4/reviewer-fixtures/case-b-primary-support.txt",
+      "purpose": "Conflicting evidence fails closed"
+    },
+    {
+      "claim": "Reviewer unavailable fixture C reports status ENABLED.",
+      "expected": {
+        "effectiveVerdict": "INSUFFICIENT",
+        "primaryAssessment": "UNAVAILABLE",
+        "primaryEvidenceStatus": "UNAVAILABLE",
+        "snapshotStored": false
+      },
+      "id": "C",
+      "policy": "DIRECT_SOURCE_V1",
+      "primaryUrl": "https://sourcejury-unavailable.invalid/evidence",
+      "purpose": "Unavailable evidence fails closed"
+    },
+    {
+      "claim": "Reviewer fixture D reports status ENABLED.",
+      "counterUrl": "https://sourcejury.vercel.app/reviewer-fixtures/case-d-counter-contradict.txt",
+      "expected": {
+        "challengeOutcome": "UPHELD",
+        "counterAssessment": "CONTRADICTS",
+        "effectiveVerdict": "INSUFFICIENT",
+        "initialVerdict": "SUPPORTED"
+      },
+      "id": "D",
+      "policy": "DIRECT_SOURCE_V1",
+      "primaryUrl": "https://raw.githubusercontent.com/Manablaq/sourcejury/82efeb441ce20484e72518382bda1a175facf9d4/reviewer-fixtures/case-d-primary-support.txt",
+      "purpose": "SUPPORTED case plus upheld challenge"
+    }
+  ],
+  "schema": "sourcejury-reviewer-live-matrix-v1",
+  "writeCount": 12
+}

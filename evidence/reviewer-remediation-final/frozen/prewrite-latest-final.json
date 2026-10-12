@@ -1,0 +1,31 @@
+{
+  "schema": "sourcejury-progress5-prewrite-latest-final-v1",
+  "network": "studio_devnet",
+  "chainId": 61997,
+  "contract": "0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE",
+  "transactionHashVariant": "LATEST_FINAL",
+  "protocolInfo": {
+    "challenge_mechanism": "BOUNDED_COUNTER_EVIDENCE_DOWNGRADE_V2",
+    "challenge_scope_note": "Challenges are bounded counter-evidence downgrades, not complete case reconsideration.",
+    "evidence_commitment_scheme": "SHA256_UTF8_RENDERED_TEXT_V1",
+    "max_challenges_per_case": 8,
+    "max_claim_chars": 1200,
+    "max_note_chars": 600,
+    "max_source_text_chars": 8000,
+    "max_url_chars": 512,
+    "policies": [
+      "DIRECT_SOURCE_V1",
+      "CORROBORATED_V1"
+    ],
+    "protocol_version": "sourcejury-v2",
+    "snapshot_version": "sourcejury-evidence-snapshot-v1",
+    "source_diversity_note": "Distinct source hosts do not prove independent ownership, editorial independence, or factual provenance.",
+    "verdicts": [
+      "SUPPORTED",
+      "CONTRADICTED",
+      "INSUFFICIENT"
+    ]
+  },
+  "caseCount": 0,
+  "challengeCount": 0
+}

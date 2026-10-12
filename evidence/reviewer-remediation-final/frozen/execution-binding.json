@@ -1,0 +1,27 @@
+{
+  "chainId": 61997,
+  "challengeNotes": {
+    "A": "Assess the supplied counter-evidence against the authenticated original evidence snapshot.",
+    "D": "Assess the supplied counter-evidence against the authenticated original evidence snapshot."
+  },
+  "contract": "0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE",
+  "expectedIds": {
+    "A_case": 1,
+    "A_challenge": 1,
+    "B_case": 2,
+    "C_case": 3,
+    "D_case": 4,
+    "D_challenge": 2
+  },
+  "frontend": "https://sourcejury.vercel.app",
+  "frontendCommit": "394f3229b33ca58f444cf7d332d843a92efb93c4",
+  "frozenMatrixSha256": "11836086f0d9862a9c9a17863da623884d200facfc7373a476b437ba80dcbd13",
+  "network": "studio_devnet",
+  "prewriteLatestFinal": {
+    "caseCount": 0,
+    "challengeCount": 0
+  },
+  "reviewReleaseCommit": "82efeb441ce20484e72518382bda1a175facf9d4",
+  "schema": "sourcejury-progress5-execution-binding-v1",
+  "writeCount": 12
+}

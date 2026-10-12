@@ -1,6 +1,32 @@
 # SourceJury reviewer-remediation live matrix
 
-This matrix is the controlled live verification plan for the reviewer-remediation release. It is a plan, not standing authorization. No Studio Devnet write may be executed until the exact deployment and transaction scope is explicitly authorized.
+This matrix began as the controlled live verification plan for the reviewer-remediation release. The explicitly authorized 12-write sequence has now completed and finalized. This document is not standing authorization for any additional Studio Devnet write.
+
+## Final execution result
+
+- Network: GenLayer Studio Devnet (`61997`)
+- Contract: `0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE`
+- Contract source SHA-256: `004ad1ffc4432326a61bef0b7391cb33ec813b3d7578bba63d352fd841f03b5b`
+- Reviewer release commit: `82efeb441ce20484e72518382bda1a175facf9d4`
+- Production frontend commit used for remaining writes: `850195e6b4d36afa6b2964abb85169ab8c19325a`
+- Final case count: `4`
+- Final challenge count: `2`
+- Authorized lifecycle writes finalized: `12/12`
+- Frozen matrix SHA-256: `11836086f0d9862a9c9a17863da623884d200facfc7373a476b437ba80dcbd13`
+- Execution binding SHA-256: `5b13c659e777fec551319830c8dce193ea7f37e55eedf73246bcf5d6b746dcf3`
+- Prewrite `LATEST_FINAL` SHA-256: `7753cb5a1d502a7c78a75a3e8bb94ff501af9afd4f763267aad4d95b3967fa03`
+- Finalized readback raw SHA-256: `e2f4d0f647805193c797026981b3e57076d4d4c3229a5132bab2d8eb1b8aec70`
+- Final validation summary SHA-256: `563c842a1a68357b96bf1260798ce29a92a0bff2af94204b2bbb4664b047eb36`
+- Independently verified available snapshot count: `6`
+
+Final scenario results:
+
+- Scenario A: `SUPPORTED` -> challenge `REJECTED` / counter `SUPPORTS` -> `SUPPORTED`
+- Scenario B: primary `SUPPORTS` + corroborating `CONTRADICTS` -> conflict -> `INSUFFICIENT`
+- Scenario C: primary `UNAVAILABLE` -> no snapshot -> `INSUFFICIENT`
+- Scenario D: `SUPPORTED` -> challenge `UPHELD` / counter `CONTRADICTS` -> `INSUFFICIENT`
+
+The raw finalized readback and supporting per-write reconciliation artifacts are frozen under `evidence/reviewer-remediation-final/`. No additional blockchain transaction is authorized by completion of this matrix.
 
 ## Purpose
 

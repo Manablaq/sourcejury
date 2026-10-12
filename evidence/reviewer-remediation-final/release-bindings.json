@@ -1,0 +1,130 @@
+{
+  "additionalBlockchainWritesAuthorized": false,
+  "allContractSnapshotVerifications": true,
+  "allLocalSnapshotVerifications": true,
+  "chainId": 61997,
+  "contract": "0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE",
+  "contractSourceSha256": "004ad1ffc4432326a61bef0b7391cb33ec813b3d7578bba63d352fd841f03b5b",
+  "deploymentTransaction": "0x8f228bbdc94f642f5e2814cc8bcd5171ec32edb91e8404d312a9cdeff088970a",
+  "executionBindingSha256": "5b13c659e777fec551319830c8dce193ea7f37e55eedf73246bcf5d6b746dcf3",
+  "finalCaseCount": 4,
+  "finalChallengeCount": 2,
+  "finalValidationSummarySha256": "563c842a1a68357b96bf1260798ce29a92a0bff2af94204b2bbb4664b047eb36",
+  "finalizedReadbackRawSha256": "e2f4d0f647805193c797026981b3e57076d4d4c3229a5132bab2d8eb1b8aec70",
+  "frozenMatrixSha256": "11836086f0d9862a9c9a17863da623884d200facfc7373a476b437ba80dcbd13",
+  "independentlyVerifiedSnapshotCount": 6,
+  "network": "studio_devnet",
+  "prewriteLatestFinalSha256": "7753cb5a1d502a7c78a75a3e8bb94ff501af9afd4f763267aad4d95b3967fa03",
+  "productionDeploymentId": "dpl_Hv47YCFo5aHPKibiNS9K8DNhCya7",
+  "productionFrontend": "https://sourcejury.vercel.app",
+  "productionFrontendCommit": "850195e6b4d36afa6b2964abb85169ab8c19325a",
+  "reviewerReleaseCommit": "82efeb441ce20484e72518382bda1a175facf9d4",
+  "rpc": "https://studio-dev.genlayer.com/api",
+  "scenarios": {
+    "A": {
+      "caseId": 1,
+      "challengeId": 1,
+      "challengeOutcome": "REJECTED",
+      "counterAssessment": "SUPPORTS",
+      "effectiveVerdict": "SUPPORTED",
+      "initialVerdict": "SUPPORTED"
+    },
+    "B": {
+      "caseId": 2,
+      "corroboratingAssessment": "CONTRADICTS",
+      "effectiveVerdict": "INSUFFICIENT",
+      "primaryAssessment": "SUPPORTS",
+      "sourceConflict": true
+    },
+    "C": {
+      "caseId": 3,
+      "effectiveVerdict": "INSUFFICIENT",
+      "primaryEvidenceStatus": "UNAVAILABLE",
+      "snapshotStored": false
+    },
+    "D": {
+      "caseId": 4,
+      "challengeId": 2,
+      "challengeOutcome": "UPHELD",
+      "counterAssessment": "CONTRADICTS",
+      "effectiveVerdict": "INSUFFICIENT",
+      "initialVerdict": "SUPPORTED"
+    }
+  },
+  "schema": "sourcejury-reviewer-remediation-final-bindings-v1",
+  "walletOverlayFixCommit": "394f3229b33ca58f444cf7d332d843a92efb93c4",
+  "writes": [
+    {
+      "executionResult": "FINISHED_WITH_RETURN",
+      "finalStatus": "FINALIZED",
+      "transactionHash": "0x8ec2d3a1a22dd5c5304b361ec81fa07afe65ef9dc55617731f6bc9b9d6e2ab2e",
+      "write": 1
+    },
+    {
+      "executionResult": "FINISHED_WITH_RETURN",
+      "finalStatus": "FINALIZED",
+      "transactionHash": "0x9dabba24f228a53d266659da5d6eb90af2052a16686320eb3748d14e56bf28ac",
+      "write": 2
+    },
+    {
+      "executionResult": "FINISHED_WITH_RETURN",
+      "finalStatus": "FINALIZED",
+      "transactionHash": "0xc73cd51269ce1bd93d816d569fcfc0f9de83047345f9e69afe3fd16324386256",
+      "write": 3
+    },
+    {
+      "executionResult": "FINISHED_WITH_RETURN",
+      "finalStatus": "FINALIZED",
+      "transactionHash": "0x3eda3acba639c38905c8036fa79b4163c83b5c921b6d448fff80677fce059a8f",
+      "write": 4
+    },
+    {
+      "executionResult": "FINISHED_WITH_RETURN",
+      "finalStatus": "FINALIZED",
+      "transactionHash": "0xa2d3b4e6fda2bd72e7da926b935e49683fa4760ddf7d232411e3066764948d5a",
+      "write": 5
+    },
+    {
+      "executionResult": "FINISHED_WITH_RETURN",
+      "finalStatus": "FINALIZED",
+      "transactionHash": "0x1cb6100d84ff21c11ce81c1026d8a99f7d1eeff46076554d8e2ed21185d0a8f8",
+      "write": 6
+    },
+    {
+      "executionResult": "FINISHED_WITH_RETURN",
+      "finalStatus": "FINALIZED",
+      "transactionHash": "0x8c7de272ed2c3d3e33f8b5efcf9fe2019ba7048c22d9a6f0e52b700f3c4a3525",
+      "write": 7
+    },
+    {
+      "executionResult": "FINISHED_WITH_RETURN",
+      "finalStatus": "FINALIZED",
+      "transactionHash": "0x7048a81a30b3cc937e28aeb7ed2915494d1c740d07d2c2e8bb88eb2aff664df3",
+      "write": 8
+    },
+    {
+      "executionResult": "FINISHED_WITH_RETURN",
+      "finalStatus": "FINALIZED",
+      "transactionHash": "0x2473a13f6826c5c37ddc013085b6d21a5c3c8453ca7833d8f0c1ef7fcdb4f3ca",
+      "write": 9
+    },
+    {
+      "executionResult": "FINISHED_WITH_RETURN",
+      "finalStatus": "FINALIZED",
+      "transactionHash": "0x14e642f94476a4c7d244f6a7e66c683a2330a28ed97c05c19ffabd8d092d54c1",
+      "write": 10
+    },
+    {
+      "executionResult": "FINISHED_WITH_RETURN",
+      "finalStatus": "FINALIZED",
+      "transactionHash": "0x2b5eb1ab5ade2e2669c4d22108ff169069dc9ebad606d858cef9cc231ed2be96",
+      "write": 11
+    },
+    {
+      "executionResult": "FINISHED_WITH_RETURN",
+      "finalStatus": "FINALIZED",
+      "transactionHash": "0xc04a189236e8c89bd6f4cf6f7d4d12c88631bfa59394100e7cbf0f8289911bdb",
+      "write": 12
+    }
+  ]
+}

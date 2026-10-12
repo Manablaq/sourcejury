@@ -13,17 +13,24 @@ SourceJury also supports bounded counter-evidence challenges. Challenges are del
 ## Production deployment
 
 - Frontend: `https://sourcejury.vercel.app`
-- Vercel production deployment: `dpl_w8AnszLENYfpMqJMxAak3K3CJh1c`
-- Frontend release commit: `7f82ba6b454e9d2473ba6c7e821f2952a42f67dc`
+- Production deployment: `dpl_Hv47YCFo5aHPKibiNS9K8DNhCya7`
+- Production frontend commit: `850195e6b4d36afa6b2964abb85169ab8c19325a`
+- Reviewer release commit: `82efeb441ce20484e72518382bda1a175facf9d4`
 - Network: GenLayer Studio Devnet
 - Chain ID: `61997`
 - RPC: `https://studio-dev.genlayer.com/api`
 - Explorer: `https://explorer-studio-dev.genlayer.com`
-- SourceJury contract: `0x2E8968E2a47ED96dE89D83061190314d24719929`
-- Certified backend contract SHA-256: `b70415770e5d4a9c1cd5371f1e400c3ae073dd5ac3c8f07b0de236ee5f9c3241`
-- Certified backend repository checkpoint: `f6a2b86513e41de0f705c0c0bae527daa843eb7f`
+- SourceJury contract: `0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE`
+- Contract source SHA-256: `004ad1ffc4432326a61bef0b7391cb33ec813b3d7578bba63d352fd841f03b5b`
+- Final reviewer case count: `4`
+- Final reviewer challenge count: `2`
+- Frozen reviewer matrix SHA-256: `11836086f0d9862a9c9a17863da623884d200facfc7373a476b437ba80dcbd13`
+- Finalized `LATEST_FINAL` readback SHA-256: `e2f4d0f647805193c797026981b3e57076d4d4c3229a5132bab2d8eb1b8aec70`
+- Final validation summary SHA-256: `563c842a1a68357b96bf1260798ce29a92a0bff2af94204b2bbb4664b047eb36`
 
-The production frontend reads durable court state using GenLayer finalized-state semantics. It does not invent verdicts when RPC reads fail.
+The production frontend is bound to the reviewer-remediation contract above. Primary reviewer fixtures remain pinned to the immutable reviewer release commit `82efeb441ce20484e72518382bda1a175facf9d4`. The authorized later frontend-only fixes culminate in production frontend commit `850195e6b4d36afa6b2964abb85169ab8c19325a` and do not change the hardened contract source.
+
+The production application reads durable court state using GenLayer finalized-state semantics. It does not invent verdicts when RPC reads fail.
 
 ## Why this is a GenLayer application
 
@@ -156,18 +163,19 @@ The browser suite exercises Chromium, Firefox, and WebKit. Write-flow interactio
 
 ### Production smoke check
 
-The production release is available at:
+The reviewer-remediation live matrix was executed from the production frontend against the bound Studio Devnet contract. All 12 authorized lifecycle writes finalized with `FINISHED_WITH_RETURN`.
 
-`https://sourcejury.vercel.app`
+The authoritative post-matrix `LATEST_FINAL` readback confirmed:
 
-Verified public routes:
+- finalized case count: `4`
+- finalized challenge count: `2`
+- Scenario A rejected challenge retained `SUPPORTED`
+- Scenario B conflicting evidence produced `INSUFFICIENT`
+- Scenario C unavailable evidence produced `INSUFFICIENT` without storing an adjudication snapshot
+- Scenario D upheld contradictory challenge downgraded `SUPPORTED` to `INSUFFICIENT`
+- six available evidence snapshots passed both contract-side verification and independent local SHA-256/snapshot-ID recomputation
 
-- `/`
-- `/docs`
-- `/explorer`
-- `/cases/1`
-
-The final production browser audit confirmed three finalized cases in the explorer and case 1 with effective verdict `SUPPORTED`, with zero unexpected browser application errors.
+The frozen raw readback and validation summary are stored under `evidence/reviewer-remediation-final/`.
 
 ## Local backend certification
 
@@ -211,6 +219,8 @@ Do not set the authorization variable merely to get around the gate.
 
 ## Release status
 
-Backend implementation, live-network certification, frontend implementation, cross-browser QA, production deployment, and the final production browser audit are complete for this release.
+Backend implementation, reviewer-remediation hardening, frontend implementation, production deployment, the frontend-driven 12-write Studio Devnet reviewer matrix, authoritative `LATEST_FINAL` readback, and independent evidence-snapshot verification are complete.
 
-The repository release is bound to frontend commit `7f82ba6b454e9d2473ba6c7e821f2952a42f67dc` and the live application at `https://sourcejury.vercel.app`.
+The reviewer release is bound to commit `82efeb441ce20484e72518382bda1a175facf9d4` and contract `0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE`. The production frontend is bound to commit `850195e6b4d36afa6b2964abb85169ab8c19325a` at `https://sourcejury.vercel.app`.
+
+The final reviewer-remediation evidence package is retained under `evidence/reviewer-remediation-final/`. No additional Studio Devnet write is authorized by this repository checkpoint.

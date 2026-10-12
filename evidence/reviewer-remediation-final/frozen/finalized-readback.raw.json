@@ -1,0 +1,324 @@
+{
+  "schema": "sourcejury-reviewer-finalized-readback-v1",
+  "network": "studio_devnet",
+  "chainId": 61997,
+  "contract": "0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE",
+  "transactionHashVariant": "LATEST_FINAL",
+  "protocolInfo": {
+    "challenge_mechanism": "BOUNDED_COUNTER_EVIDENCE_DOWNGRADE_V2",
+    "challenge_scope_note": "Challenges are bounded counter-evidence downgrades, not complete case reconsideration.",
+    "evidence_commitment_scheme": "SHA256_UTF8_RENDERED_TEXT_V1",
+    "max_challenges_per_case": 8,
+    "max_claim_chars": 1200,
+    "max_note_chars": 600,
+    "max_source_text_chars": 8000,
+    "max_url_chars": 512,
+    "policies": [
+      "DIRECT_SOURCE_V1",
+      "CORROBORATED_V1"
+    ],
+    "protocol_version": "sourcejury-v2",
+    "snapshot_version": "sourcejury-evidence-snapshot-v1",
+    "source_diversity_note": "Distinct source hosts do not prove independent ownership, editorial independence, or factual provenance.",
+    "verdicts": [
+      "SUPPORTED",
+      "CONTRADICTED",
+      "INSUFFICIENT"
+    ]
+  },
+  "caseCount": 4,
+  "challengeCount": 2,
+  "cases": [
+    {
+      "id": 1,
+      "item": {
+        "challenge_count": 1,
+        "claim": "Reviewer fixture A reports status ENABLED.",
+        "corroborating_assessment": "UNAVAILABLE",
+        "corroborating_content_length": 0,
+        "corroborating_content_sha256": "",
+        "corroborating_evidence_status": "NOT_APPLICABLE",
+        "corroborating_host": "",
+        "corroborating_snapshot_id": "",
+        "corroborating_url": "",
+        "effective_verdict": "SUPPORTED",
+        "evidence_commitment_scheme": "SHA256_UTF8_RENDERED_TEXT_V1",
+        "id": 1,
+        "initial_verdict": "SUPPORTED",
+        "latest_challenge_id": 1,
+        "pending_challenge_id": 0,
+        "policy": "DIRECT_SOURCE_V1",
+        "primary_assessment": "SUPPORTS",
+        "primary_content_length": 177,
+        "primary_content_sha256": "792b7041f90ac75b5bca2e6328ef729d128503a8d60b66e7c5a6f1406013ad89",
+        "primary_evidence_status": "AVAILABLE",
+        "primary_host": "raw.githubusercontent.com",
+        "primary_snapshot_id": "65095a70e4a8a82e392eb958376be6e536e0aa44d10cf693a17167d0be6f9d64",
+        "primary_url": "https://raw.githubusercontent.com/Manablaq/sourcejury/82efeb441ce20484e72518382bda1a175facf9d4/reviewer-fixtures/case-a-primary-support.txt",
+        "protocol_version": "sourcejury-v2",
+        "rationale": "The primary source explicitly states 'Claim: Reviewer fixture A reports status ENABLED' and 'Status: ENABLED,' which directly matches the claim. No corroborating source is available, so it does not contribute evidence.",
+        "revision": 1,
+        "source_availability": "PRIMARY_ONLY",
+        "source_conflict": false,
+        "state": "RESOLVED",
+        "submitter": "0x7A4a1f1acDa02E984ca80A86F08fb50dd03AC585"
+      },
+      "snapshots": [
+        {
+          "snapshotId": "65095a70e4a8a82e392eb958376be6e536e0aa44d10cf693a17167d0be6f9d64",
+          "snapshot": {
+            "commitment_scheme": "SHA256_UTF8_RENDERED_TEXT_V1",
+            "content": "SOURCEJURY REVIEWER FIXTURE A\nClaim: Reviewer fixture A reports status ENABLED.\nStatus: ENABLED.\nPurpose: deterministic bounded primary evidence for the rejected-challenge path.",
+            "content_length": 177,
+            "content_sha256": "792b7041f90ac75b5bca2e6328ef729d128503a8d60b66e7c5a6f1406013ad89",
+            "host": "raw.githubusercontent.com",
+            "snapshot_id": "65095a70e4a8a82e392eb958376be6e536e0aa44d10cf693a17167d0be6f9d64",
+            "snapshot_version": "sourcejury-evidence-snapshot-v1",
+            "url": "https://raw.githubusercontent.com/Manablaq/sourcejury/82efeb441ce20484e72518382bda1a175facf9d4/reviewer-fixtures/case-a-primary-support.txt"
+          },
+          "contractVerified": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "item": {
+        "challenge_count": 0,
+        "claim": "Reviewer fixture B reports status ENABLED.",
+        "corroborating_assessment": "CONTRADICTS",
+        "corroborating_content_length": 152,
+        "corroborating_content_sha256": "494fd0a4108cba3151ee1056b4f31e7cd064d0c2dccba6294181d411cbf5ce5f",
+        "corroborating_evidence_status": "AVAILABLE",
+        "corroborating_host": "sourcejury.vercel.app",
+        "corroborating_snapshot_id": "57c71a6b939c4530c21603b926ad3022e2ddb3f720443ae7b0b7503f6341abb8",
+        "corroborating_url": "https://sourcejury.vercel.app/reviewer-fixtures/case-b-conflict-contradict.txt",
+        "effective_verdict": "INSUFFICIENT",
+        "evidence_commitment_scheme": "SHA256_UTF8_RENDERED_TEXT_V1",
+        "id": 2,
+        "initial_verdict": "INSUFFICIENT",
+        "latest_challenge_id": 0,
+        "pending_challenge_id": 0,
+        "policy": "CORROBORATED_V1",
+        "primary_assessment": "SUPPORTS",
+        "primary_content_length": 179,
+        "primary_content_sha256": "43c2f96749697a60cf5fb8dc57b50e0f233b059672966faa2e8555d28617eb6f",
+        "primary_evidence_status": "AVAILABLE",
+        "primary_host": "raw.githubusercontent.com",
+        "primary_snapshot_id": "5d49e3bea0cae798724a00e2b441cfd80de875790b09553320fab88b125083c7",
+        "primary_url": "https://raw.githubusercontent.com/Manablaq/sourcejury/82efeb441ce20484e72518382bda1a175facf9d4/reviewer-fixtures/case-b-primary-support.txt",
+        "protocol_version": "sourcejury-v2",
+        "rationale": "The primary source explicitly states that Reviewer fixture B has status ENABLED, directly supporting the claim. The corroborating source states the status as DISABLED, directly contradicting the claim.",
+        "revision": 1,
+        "source_availability": "BOTH",
+        "source_conflict": true,
+        "state": "RESOLVED",
+        "submitter": "0x7A4a1f1acDa02E984ca80A86F08fb50dd03AC585"
+      },
+      "snapshots": [
+        {
+          "snapshotId": "5d49e3bea0cae798724a00e2b441cfd80de875790b09553320fab88b125083c7",
+          "snapshot": {
+            "commitment_scheme": "SHA256_UTF8_RENDERED_TEXT_V1",
+            "content": "SOURCEJURY REVIEWER FIXTURE B\nClaim: Reviewer fixture B reports status ENABLED.\nStatus: ENABLED.\nPurpose: deterministic bounded primary evidence for the conflicting-evidence path.",
+            "content_length": 179,
+            "content_sha256": "43c2f96749697a60cf5fb8dc57b50e0f233b059672966faa2e8555d28617eb6f",
+            "host": "raw.githubusercontent.com",
+            "snapshot_id": "5d49e3bea0cae798724a00e2b441cfd80de875790b09553320fab88b125083c7",
+            "snapshot_version": "sourcejury-evidence-snapshot-v1",
+            "url": "https://raw.githubusercontent.com/Manablaq/sourcejury/82efeb441ce20484e72518382bda1a175facf9d4/reviewer-fixtures/case-b-primary-support.txt"
+          },
+          "contractVerified": true
+        },
+        {
+          "snapshotId": "57c71a6b939c4530c21603b926ad3022e2ddb3f720443ae7b0b7503f6341abb8",
+          "snapshot": {
+            "commitment_scheme": "SHA256_UTF8_RENDERED_TEXT_V1",
+            "content": "SOURCEJURY REVIEWER FIXTURE B CONFLICT\nClaim: Reviewer fixture B reports status ENABLED.\nStatus: DISABLED.\nThis evidence directly contradicts the claim.",
+            "content_length": 152,
+            "content_sha256": "494fd0a4108cba3151ee1056b4f31e7cd064d0c2dccba6294181d411cbf5ce5f",
+            "host": "sourcejury.vercel.app",
+            "snapshot_id": "57c71a6b939c4530c21603b926ad3022e2ddb3f720443ae7b0b7503f6341abb8",
+            "snapshot_version": "sourcejury-evidence-snapshot-v1",
+            "url": "https://sourcejury.vercel.app/reviewer-fixtures/case-b-conflict-contradict.txt"
+          },
+          "contractVerified": true
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "item": {
+        "challenge_count": 0,
+        "claim": "Reviewer unavailable fixture C reports status ENABLED.",
+        "corroborating_assessment": "UNAVAILABLE",
+        "corroborating_content_length": 0,
+        "corroborating_content_sha256": "",
+        "corroborating_evidence_status": "NOT_APPLICABLE",
+        "corroborating_host": "",
+        "corroborating_snapshot_id": "",
+        "corroborating_url": "",
+        "effective_verdict": "INSUFFICIENT",
+        "evidence_commitment_scheme": "SHA256_UTF8_RENDERED_TEXT_V1",
+        "id": 3,
+        "initial_verdict": "INSUFFICIENT",
+        "latest_challenge_id": 0,
+        "pending_challenge_id": 0,
+        "policy": "DIRECT_SOURCE_V1",
+        "primary_assessment": "UNAVAILABLE",
+        "primary_content_length": 0,
+        "primary_content_sha256": "",
+        "primary_evidence_status": "UNAVAILABLE",
+        "primary_host": "sourcejury-unavailable.invalid",
+        "primary_snapshot_id": "",
+        "primary_url": "https://sourcejury-unavailable.invalid/evidence",
+        "protocol_version": "sourcejury-v2",
+        "rationale": "No bounded available evidence could be adjudicated.",
+        "revision": 1,
+        "source_availability": "NONE",
+        "source_conflict": false,
+        "state": "RESOLVED",
+        "submitter": "0x7A4a1f1acDa02E984ca80A86F08fb50dd03AC585"
+      },
+      "snapshots": []
+    },
+    {
+      "id": 4,
+      "item": {
+        "challenge_count": 1,
+        "claim": "Reviewer fixture D reports status ENABLED.",
+        "corroborating_assessment": "UNAVAILABLE",
+        "corroborating_content_length": 0,
+        "corroborating_content_sha256": "",
+        "corroborating_evidence_status": "NOT_APPLICABLE",
+        "corroborating_host": "",
+        "corroborating_snapshot_id": "",
+        "corroborating_url": "",
+        "effective_verdict": "INSUFFICIENT",
+        "evidence_commitment_scheme": "SHA256_UTF8_RENDERED_TEXT_V1",
+        "id": 4,
+        "initial_verdict": "SUPPORTED",
+        "latest_challenge_id": 2,
+        "pending_challenge_id": 0,
+        "policy": "DIRECT_SOURCE_V1",
+        "primary_assessment": "SUPPORTS",
+        "primary_content_length": 175,
+        "primary_content_sha256": "1b2b358ff76af52b12267148631925f44548bc4843bd0162e4e004f7a7554b76",
+        "primary_evidence_status": "AVAILABLE",
+        "primary_host": "raw.githubusercontent.com",
+        "primary_snapshot_id": "9780f98bd4f61ef5d0a68f6a1ff52db1d0373a53b7aacd45527ce81bc486c5b1",
+        "primary_url": "https://raw.githubusercontent.com/Manablaq/sourcejury/82efeb441ce20484e72518382bda1a175facf9d4/reviewer-fixtures/case-d-primary-support.txt",
+        "protocol_version": "sourcejury-v2",
+        "rationale": "The primary source explicitly states 'Status: ENABLED.', directly establishing the claim that Reviewer fixture D reports status ENABLED. The corroborating source is not available.",
+        "revision": 2,
+        "source_availability": "PRIMARY_ONLY",
+        "source_conflict": false,
+        "state": "RESOLVED",
+        "submitter": "0x7A4a1f1acDa02E984ca80A86F08fb50dd03AC585"
+      },
+      "snapshots": [
+        {
+          "snapshotId": "9780f98bd4f61ef5d0a68f6a1ff52db1d0373a53b7aacd45527ce81bc486c5b1",
+          "snapshot": {
+            "commitment_scheme": "SHA256_UTF8_RENDERED_TEXT_V1",
+            "content": "SOURCEJURY REVIEWER FIXTURE D\nClaim: Reviewer fixture D reports status ENABLED.\nStatus: ENABLED.\nPurpose: deterministic bounded primary evidence for the upheld-challenge path.",
+            "content_length": 175,
+            "content_sha256": "1b2b358ff76af52b12267148631925f44548bc4843bd0162e4e004f7a7554b76",
+            "host": "raw.githubusercontent.com",
+            "snapshot_id": "9780f98bd4f61ef5d0a68f6a1ff52db1d0373a53b7aacd45527ce81bc486c5b1",
+            "snapshot_version": "sourcejury-evidence-snapshot-v1",
+            "url": "https://raw.githubusercontent.com/Manablaq/sourcejury/82efeb441ce20484e72518382bda1a175facf9d4/reviewer-fixtures/case-d-primary-support.txt"
+          },
+          "contractVerified": true
+        }
+      ]
+    }
+  ],
+  "challenges": [
+    {
+      "id": 1,
+      "item": {
+        "authenticated_basis_verdict": "SUPPORTED",
+        "case_id": 1,
+        "challenge_mechanism": "BOUNDED_COUNTER_EVIDENCE_DOWNGRADE_V2",
+        "challenge_outcome": "REJECTED",
+        "challenger": "0x7A4a1f1acDa02E984ca80A86F08fb50dd03AC585",
+        "corroborating_live_status": "NOT_APPLICABLE",
+        "counter_assessment": "SUPPORTS",
+        "counter_content_length": 158,
+        "counter_content_sha256": "e235c2fa6aa7db6c7f60b74bb98610e3b7421f5b0d6ab488fee0c4a921b53d7f",
+        "counter_evidence_status": "AVAILABLE",
+        "counter_host": "sourcejury.vercel.app",
+        "counter_snapshot_id": "ade54918436f67db1c8cbdb12375685d8b417d4521c172cb613f8d8ae8cb0475",
+        "counter_url": "https://sourcejury.vercel.app/reviewer-fixtures/case-a-counter-support.txt",
+        "id": 1,
+        "note": "Assess the supplied counter-evidence against the authenticated original evidence snapshot.",
+        "original_corroborating_snapshot_id": "",
+        "original_primary_snapshot_id": "65095a70e4a8a82e392eb958376be6e536e0aa44d10cf693a17167d0be6f9d64",
+        "original_snapshot_consistent": true,
+        "original_source_drift": false,
+        "primary_live_status": "UNCHANGED",
+        "prior_effective_verdict": "SUPPORTED",
+        "rationale": "The counter-evidence explicitly states that Reviewer fixture A has a status of ENABLED, which confirms the claim and is consistent with the original evidence snapshot.",
+        "revised_verdict": "SUPPORTED",
+        "state": "REJECTED"
+      },
+      "counter": {
+        "snapshotId": "ade54918436f67db1c8cbdb12375685d8b417d4521c172cb613f8d8ae8cb0475",
+        "snapshot": {
+          "commitment_scheme": "SHA256_UTF8_RENDERED_TEXT_V1",
+          "content": "SOURCEJURY REVIEWER FIXTURE A COUNTER\nClaim: Reviewer fixture A reports status ENABLED.\nStatus: ENABLED.\nThis counter-evidence agrees with the original claim.",
+          "content_length": 158,
+          "content_sha256": "e235c2fa6aa7db6c7f60b74bb98610e3b7421f5b0d6ab488fee0c4a921b53d7f",
+          "host": "sourcejury.vercel.app",
+          "snapshot_id": "ade54918436f67db1c8cbdb12375685d8b417d4521c172cb613f8d8ae8cb0475",
+          "snapshot_version": "sourcejury-evidence-snapshot-v1",
+          "url": "https://sourcejury.vercel.app/reviewer-fixtures/case-a-counter-support.txt"
+        },
+        "contractVerified": true
+      }
+    },
+    {
+      "id": 2,
+      "item": {
+        "authenticated_basis_verdict": "SUPPORTED",
+        "case_id": 4,
+        "challenge_mechanism": "BOUNDED_COUNTER_EVIDENCE_DOWNGRADE_V2",
+        "challenge_outcome": "UPHELD",
+        "challenger": "0x7A4a1f1acDa02E984ca80A86F08fb50dd03AC585",
+        "corroborating_live_status": "NOT_APPLICABLE",
+        "counter_assessment": "CONTRADICTS",
+        "counter_content_length": 168,
+        "counter_content_sha256": "617cc03839933571bbde7abe335626533229cdbb0b620a21ede097c07263a519",
+        "counter_evidence_status": "AVAILABLE",
+        "counter_host": "sourcejury.vercel.app",
+        "counter_snapshot_id": "f2822aa1b7c68ad251d1f0e2377cd012c3b48f45dd225e98d53c0c204905f6b7",
+        "counter_url": "https://sourcejury.vercel.app/reviewer-fixtures/case-d-counter-contradict.txt",
+        "id": 2,
+        "note": "Assess the supplied counter-evidence against the authenticated original evidence snapshot.",
+        "original_corroborating_snapshot_id": "",
+        "original_primary_snapshot_id": "9780f98bd4f61ef5d0a68f6a1ff52db1d0373a53b7aacd45527ce81bc486c5b1",
+        "original_snapshot_consistent": true,
+        "original_source_drift": false,
+        "primary_live_status": "UNCHANGED",
+        "prior_effective_verdict": "SUPPORTED",
+        "rationale": "Counter-evidence states Status: DISABLED for the exact claim 'Reviewer fixture D reports status ENABLED', directly establishing the opposite of the authenticated primary snapshot which states Status: ENABLED.",
+        "revised_verdict": "INSUFFICIENT",
+        "state": "UPHELD"
+      },
+      "counter": {
+        "snapshotId": "f2822aa1b7c68ad251d1f0e2377cd012c3b48f45dd225e98d53c0c204905f6b7",
+        "snapshot": {
+          "commitment_scheme": "SHA256_UTF8_RENDERED_TEXT_V1",
+          "content": "SOURCEJURY REVIEWER FIXTURE D COUNTER\nClaim: Reviewer fixture D reports status ENABLED.\nStatus: DISABLED.\nThis counter-evidence directly contradicts the original claim.",
+          "content_length": 168,
+          "content_sha256": "617cc03839933571bbde7abe335626533229cdbb0b620a21ede097c07263a519",
+          "host": "sourcejury.vercel.app",
+          "snapshot_id": "f2822aa1b7c68ad251d1f0e2377cd012c3b48f45dd225e98d53c0c204905f6b7",
+          "snapshot_version": "sourcejury-evidence-snapshot-v1",
+          "url": "https://sourcejury.vercel.app/reviewer-fixtures/case-d-counter-contradict.txt"
+        },
+        "contractVerified": true
+      }
+    }
+  ]
+}

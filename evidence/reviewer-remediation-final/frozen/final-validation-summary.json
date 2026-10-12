@@ -1,0 +1,46 @@
+{
+  "additionalBlockchainWritesAuthorized": false,
+  "all12LifecycleWritesComplete": true,
+  "allContractSnapshotVerifications": true,
+  "allLocalSnapshotVerifications": true,
+  "caseCount": 4,
+  "chainId": 61997,
+  "challengeCount": 2,
+  "contract": "0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE",
+  "independentlyVerifiedSnapshotCount": 6,
+  "network": "studio_devnet",
+  "progress": "6/6",
+  "scenarios": {
+    "A": {
+      "caseId": 1,
+      "challengeId": 1,
+      "challengeOutcome": "REJECTED",
+      "counterAssessment": "SUPPORTS",
+      "effectiveVerdict": "SUPPORTED",
+      "initialVerdict": "SUPPORTED"
+    },
+    "B": {
+      "caseId": 2,
+      "corroboratingAssessment": "CONTRADICTS",
+      "effectiveVerdict": "INSUFFICIENT",
+      "primaryAssessment": "SUPPORTS",
+      "sourceConflict": true
+    },
+    "C": {
+      "caseId": 3,
+      "effectiveVerdict": "INSUFFICIENT",
+      "primaryEvidenceStatus": "UNAVAILABLE",
+      "snapshotStored": false
+    },
+    "D": {
+      "caseId": 4,
+      "challengeId": 2,
+      "challengeOutcome": "UPHELD",
+      "counterAssessment": "CONTRADICTS",
+      "effectiveVerdict": "INSUFFICIENT",
+      "initialVerdict": "SUPPORTED"
+    }
+  },
+  "schema": "sourcejury-progress6-final-validation-v1",
+  "transactionHashVariant": "LATEST_FINAL"
+}

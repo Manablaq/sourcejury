@@ -7,10 +7,14 @@ SourceJury is implemented against the certified GenLayer Studio Devnet backend a
 - Frontend progress: `7/7 COMPLETE`
 - Production URL: `https://sourcejury.vercel.app`
 - Vercel project ID: `prj_EKEh2yKQ1l5YRgbhWfortzgw4w8M`
-- Vercel deployment ID: `dpl_w8AnszLENYfpMqJMxAak3K3CJh1c`
+- Reviewer-remediation production deployment: `dpl_Hv47YCFo5aHPKibiNS9K8DNhCya7`
 - Deployment state: `READY`
-- Production deployment count at certification: `1`
-- Deployed release commit: `7f82ba6b454e9d2473ba6c7e821f2952a42f67dc`
+- Reviewer release commit: `82efeb441ce20484e72518382bda1a175facf9d4`
+- Wallet-overlay fix commit: `394f3229b33ca58f444cf7d332d843a92efb93c4`
+- Production frontend commit: `850195e6b4d36afa6b2964abb85169ab8c19325a`
+- Bound reviewer-remediation contract: `0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE`
+- Finalized reviewer case count: `4`
+- Finalized reviewer challenge count: `2`
 
 ## Verified application surface
 
@@ -33,10 +37,13 @@ SourceJury is implemented against the certified GenLayer Studio Devnet backend a
 - Chain ID: `61997`
 - RPC: `https://studio-dev.genlayer.com/api`
 - Explorer: `https://explorer-studio-dev.genlayer.com`
-- Contract: `0x2E8968E2a47ED96dE89D83061190314d24719929`
+- Contract: `0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE`
+- Contract source SHA-256: `004ad1ffc4432326a61bef0b7391cb33ec813b3d7578bba63d352fd841f03b5b`
+- Reviewer release commit: `82efeb441ce20484e72518382bda1a175facf9d4`
+- Production frontend commit: `850195e6b4d36afa6b2964abb85169ab8c19325a`
 - Finalized reads: `TransactionHashVariant.LATEST_FINAL`
 
-The frontend is bound to the certified SourceJury backend contract and does not substitute locally fabricated verdicts when live RPC reads fail.
+The production frontend is bound to the reviewer-remediation contract and does not substitute locally fabricated verdicts when live RPC reads fail. The finality waiter on the production frontend uses an explicit extended polling budget so accepted GenLayer transactions are not incorrectly reported as failed merely because they exceed the SDK's short default wait window.
 
 ## Certified browser QA
 
@@ -82,27 +89,41 @@ The write-safety suite passed 11/11.
 
 The browser suite uses an injected mock wallet for write-flow interaction testing and intentionally does not click the final write-confirmation action.
 
-## Production certification
+## Reviewer-remediation production certification
 
-The single authorized production deployment completed successfully and reached `READY`.
+The production frontend was used to execute the explicitly authorized 12-write reviewer matrix against `0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE`.
 
-The final browser audit verified:
+The final authoritative `LATEST_FINAL` certification confirmed:
 
-- `/` -> HTTP 200
-- `/docs` -> HTTP 200
-- `/explorer` -> HTTP 200
-- `/cases/1` -> HTTP 200
-- finalized explorer case count -> `3`
-- case 1 effective verdict -> `SUPPORTED`
-- desktop horizontal overflow -> `NO`
-- recoverable production transport errors -> `0`
-- unexpected production browser application errors -> `0`
-- production runtime errors reported by Vercel -> `0`
+- case count `4`
+- challenge count `2`
+- Scenario A: rejected supporting challenge, effective verdict `SUPPORTED`
+- Scenario B: conflicting primary/corroborating evidence, effective verdict `INSUFFICIENT`
+- Scenario C: unavailable evidence, effective verdict `INSUFFICIENT`
+- Scenario D: upheld contradictory challenge, effective verdict `INSUFFICIENT`
+- six available evidence snapshots independently verified
+- all contract snapshot verification calls returned `true`
+- all local SHA-256/snapshot-ID recomputations passed
+- all 12 authorized lifecycle transactions finalized with `FINISHED_WITH_RETURN`
 
-No additional Git commit, Git push, Vercel deployment, blockchain write, live transaction, signing, funding, backend-contract change, or backend-config change occurred during the final production audit.
+Frozen matrix SHA-256:
+
+`11836086f0d9862a9c9a17863da623884d200facfc7373a476b437ba80dcbd13`
+
+Finalized raw readback SHA-256:
+
+`e2f4d0f647805193c797026981b3e57076d4d4c3229a5132bab2d8eb1b8aec70`
+
+Final validation summary SHA-256:
+
+`563c842a1a68357b96bf1260798ce29a92a0bff2af94204b2bbb4664b047eb36`
+
+No additional blockchain transaction, funding operation, signing operation, contract deployment, environment-variable mutation, domain mutation, or Vercel deployment is authorized by this certification.
 
 ## Release result
 
 `SOURCEJURY_FRONTEND_STATUS=COMPLETE`
 
-The production frontend is live at `https://sourcejury.vercel.app` and is bound to release commit `7f82ba6b454e9d2473ba6c7e821f2952a42f67dc`.
+The production frontend is live at `https://sourcejury.vercel.app`, is bound to contract `0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE`, and is deployed from production frontend commit `850195e6b4d36afa6b2964abb85169ab8c19325a`.
+
+The immutable primary reviewer fixtures and hardened reviewer release remain bound to commit `82efeb441ce20484e72518382bda1a175facf9d4`. Final reviewer-remediation evidence is retained under `evidence/reviewer-remediation-final/`.

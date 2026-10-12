@@ -4,19 +4,23 @@ This document records the final certified backend checkpoint for the SourceJury 
 
 ## Release status
 
-Backend implementation and live Studio Devnet certification are complete for this release.
+Backend implementation and reviewer-remediation Studio Devnet certification are complete for this release.
 
 - Network: GenLayer Studio Devnet
 - Chain ID: `61997`
 - RPC: `https://studio-dev.genlayer.com/api`
-- Contract: `0x2E8968E2a47ED96dE89D83061190314d24719929`
-- Contract SHA-256: `b70415770e5d4a9c1cd5371f1e400c3ae073dd5ac3c8f07b0de236ee5f9c3241`
-- Network config SHA-256: `3aecdcc51d1628b73191b176ccf3ddc7498570453a0225059ff98f5605683712`
-- Certified backend repository checkpoint: `f6a2b86513e41de0f705c0c0bae527daa843eb7f`
-- Frontend release commit: `7f82ba6b454e9d2473ba6c7e821f2952a42f67dc`
+- Contract: `0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE`
+- Contract source SHA-256: `004ad1ffc4432326a61bef0b7391cb33ec813b3d7578bba63d352fd841f03b5b`
+- Reviewer release commit: `82efeb441ce20484e72518382bda1a175facf9d4`
+- Production frontend commit: `850195e6b4d36afa6b2964abb85169ab8c19325a`
 - Production frontend: `https://sourcejury.vercel.app`
+- Finalized case count: `4`
+- Finalized challenge count: `2`
+- Frozen reviewer matrix SHA-256: `11836086f0d9862a9c9a17863da623884d200facfc7373a476b437ba80dcbd13`
+- Finalized readback raw SHA-256: `e2f4d0f647805193c797026981b3e57076d4d4c3229a5132bab2d8eb1b8aec70`
+- Final validation summary SHA-256: `563c842a1a68357b96bf1260798ce29a92a0bff2af94204b2bbb4664b047eb36`
 
-The deployed backend is the same frozen contract source certified by the local and live-network gates.
+The deployed reviewer-remediation backend is the frozen hardened contract source bound to the reviewer release. The later authorized frontend fixes do not alter the contract source.
 
 ## Implemented
 
@@ -45,19 +49,29 @@ The deployed backend is the same frozen contract source certified by the local a
 
 ## Certified live state
 
-The reviewer-facing live certification established:
+The finalized reviewer-remediation matrix established four cases and two challenges:
 
-- finalized case count: `3`
-- finalized challenge count: `1`
-- case 1 effective verdict: `SUPPORTED`
-- case 2 effective verdict: `CONTRADICTED`
-- case 3 effective verdict: `INSUFFICIENT`
-- challenge 1 outcome: `REJECTED`
-- challenge 1 counter-source assessment: `SUPPORTS`
-- challenge 1 revised verdict: `SUPPORTED`
-- case 1 pending challenge after resolution: `0`
+- Scenario A / case 1:
+  - initial verdict `SUPPORTED`
+  - challenge 1 outcome `REJECTED`
+  - counter assessment `SUPPORTS`
+  - effective verdict remains `SUPPORTED`
+- Scenario B / case 2:
+  - primary assessment `SUPPORTS`
+  - corroborating assessment `CONTRADICTS`
+  - `source_conflict=true`
+  - effective verdict `INSUFFICIENT`
+- Scenario C / case 3:
+  - primary source `UNAVAILABLE`
+  - no adjudication snapshot stored for unavailable content
+  - effective verdict `INSUFFICIENT`
+- Scenario D / case 4:
+  - initial verdict `SUPPORTED`
+  - challenge 2 outcome `UPHELD`
+  - counter assessment `CONTRADICTS`
+  - revised/effective verdict `INSUFFICIENT`
 
-These branches demonstrate the three primary verdict classes and a finalized challenge path without relying on UI-fabricated state.
+All 12 authorized lifecycle writes finalized with `FINISHED_WITH_RETURN`. Six available evidence snapshots passed contract-side verification and independent local SHA-256/snapshot-ID recomputation. Scenario D also proved that one contradictory counter-source downgrades a directional verdict to `INSUFFICIENT` rather than directly reversing it to `CONTRADICTED`.
 
 ## Security properties retained at release
 

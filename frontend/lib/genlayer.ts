@@ -9,12 +9,15 @@ import type {
   Challenge,
   CourtCase,
   CourtSnapshot,
+  EvidenceSnapshot,
+  EvidenceVerification,
   PreparedWrite,
   WriteStage
 } from "@/lib/types";
 import { safeNumber } from "@/lib/format";
 import type { EIP1193Provider } from "@/components/wallet-provider";
 import { assertProviderWriteContext } from "@/lib/write-safety";
+import { verifyEvidenceSnapshotLocally } from "@/lib/evidence-commitment";
 
 const readClient = createClient({ chain: studioDevnet });
 
@@ -94,6 +97,33 @@ export async function readChallenge(challengeId: number) {
     args: [challengeId],
     transactionHashVariant: TransactionHashVariant.LATEST_FINAL
   })) as Challenge;
+}
+
+export async function readEvidenceSnapshot(
+  snapshotId: string
+): Promise<EvidenceVerification> {
+  const [snapshot, contractVerified] = await Promise.all([
+    readClient.readContract({
+      address: SOURCEJURY_CONTRACT,
+      functionName: "get_evidence_snapshot",
+      args: [snapshotId],
+      transactionHashVariant: TransactionHashVariant.LATEST_FINAL
+    }) as Promise<EvidenceSnapshot>,
+    readClient.readContract({
+      address: SOURCEJURY_CONTRACT,
+      functionName: "verify_evidence_snapshot",
+      args: [snapshotId],
+      transactionHashVariant: TransactionHashVariant.LATEST_FINAL
+    }) as Promise<boolean>
+  ]);
+
+  const locallyVerified = await verifyEvidenceSnapshotLocally(snapshot);
+
+  return {
+    snapshot,
+    contractVerified,
+    locallyVerified
+  };
 }
 
 export async function executeSourceJuryWrite({

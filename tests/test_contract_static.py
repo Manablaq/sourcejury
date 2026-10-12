@@ -78,12 +78,13 @@ def test_storage_annotations_use_supported_types():
         "gl.storage.TreeMap[u256, str]",
         "gl.storage.TreeMap[str, u256]",
         "gl.storage.TreeMap[str, u256]",
+        "gl.storage.TreeMap[str, str]",
     ]
     assert all("list" not in x and "dict" not in x and x != "int" for x in rendered)
     # In the v0.3 Python SDK, u256 is typing.Annotated[int, ...], not a runtime constructor.
     assert "u256(" not in SOURCE
     assert "gl.TreeMap[" not in SOURCE
-    assert SOURCE.count("gl.storage.TreeMap[") == 4
+    assert SOURCE.count("gl.storage.TreeMap[") == 5
 
 
 def test_all_public_views_have_return_annotations():
@@ -122,5 +123,25 @@ def test_provenance_is_persisted():
     assert '"counter_host": counter_host' in SOURCE
 
 
-def test_challenge_consensus_uses_immutable_case_snapshot():
-    assert '_challenge_consensus(dict(case), challenge["counter_url"], challenge["note"])' in SOURCE
+def test_evidence_commitments_and_authenticated_challenge_snapshots_exist():
+    assert "import hashlib" in SOURCE
+    assert 'EVIDENCE_COMMITMENT_SCHEME = "SHA256_UTF8_RENDERED_TEXT_V1"' in SOURCE
+    assert "evidence_snapshots: gl.storage.TreeMap[str, str]" in SOURCE
+    assert "def get_evidence_snapshot" in SOURCE
+    assert "def verify_evidence_snapshot" in SOURCE
+    assert "BEGIN_AUTHENTICATED_PRIMARY_SNAPSHOT" in SOURCE
+    assert "original_primary_snapshot_id" in SOURCE
+    assert "primary_live_status" in SOURCE
+    assert "original_source_drift" in SOURCE
+
+
+def test_decision_critical_evidence_is_never_silently_truncated():
+    assert "rendered = rendered[:MAX_SOURCE_TEXT_CHARS]" not in SOURCE
+    assert "if length > MAX_SOURCE_TEXT_CHARS:" in SOURCE
+    assert "CONTENT_TOO_LARGE" in SOURCE
+    assert "Decision-critical evidence is never silently truncated" in SOURCE
+
+
+def test_protocol_clarifies_source_diversity_and_challenge_scope():
+    assert "Distinct source hosts do not prove independent ownership" in SOURCE
+    assert "Challenges are bounded counter-evidence downgrades, not complete case reconsideration." in SOURCE

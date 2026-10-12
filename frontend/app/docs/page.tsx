@@ -29,9 +29,11 @@ const methods = [
   ["get_challenge_count", "View", "Number of persisted challenges."],
   ["get_case(id)", "View", "Complete case state and verdict history."],
   ["get_challenge(id)", "View", "Complete challenge state and outcome."],
+  ["get_evidence_snapshot(id)", "View", "Exact bounded evidence content and SHA-256 commitment used for adjudication."],
+  ["verify_evidence_snapshot(id)", "View", "Contract-side verification of snapshot integrity."],
   ["create_case(...)", "Write", "Persist a claim and evidence references."],
   ["evaluate_case(id)", "Write", "Evaluate a case through consensus."],
-  ["open_challenge(...)", "Write", "Attach counter-evidence to a case."],
+  ["open_challenge(...)", "Write", "Attach bounded counter-evidence to authenticated original evidence."],
   ["resolve_challenge(id)", "Write", "Resolve counter-evidence through consensus."]
 ];
 
@@ -58,6 +60,7 @@ export default function DocsPage() {
             <strong>On this page</strong>
             <a href="#overview">Overview</a>
             <a href="#policies">Evidence policies</a>
+            <a href="#commitments">Evidence commitments</a>
             <a href="#verdicts">Verdicts</a>
             <a href="#challenges">Challenges</a>
             <a href="#wallet">Wallet & network</a>
@@ -68,9 +71,9 @@ export default function DocsPage() {
           <article className="docs-content">
             <DocSection id="overview" icon={BookOpen} title="Overview">
               <p>
-                SourceJury stores a claim, source references, source
-                assessments, a verdict, rationale, revision, and challenge
-                state. Reading the court does not require a wallet.
+                SourceJury stores a claim, source references, authenticated
+                evidence commitments, source assessments, a verdict, rationale,
+                revision, and challenge state. Reading the court does not require a wallet.
               </p>
               <p>
                 The interface uses finalized contract state for durable
@@ -89,6 +92,22 @@ export default function DocsPage() {
               <p>
                 Primary and corroborating evidence are evaluated together.
                 The UI requires a corroborating URL when this policy is selected.
+                Distinct hosts provide source diversity only; they do not prove
+                independent ownership, editorial independence, or factual provenance.
+              </p>
+            </DocSection>
+
+            <DocSection id="commitments" icon={Fingerprint} title="Authenticated evidence commitments">
+              <p>
+                Every bounded evidence body used for adjudication is preserved as
+                an immutable snapshot and committed with SHA-256 over the exact UTF-8
+                rendered text. Case state records the snapshot ID, digest, and content length.
+              </p>
+              <p>
+                The case page reads the stored snapshot, asks the contract to verify it,
+                and independently recomputes both the content digest and snapshot ID in
+                the browser. Evidence above the supported 8,000-character decision bound
+                is never silently truncated; it fails closed as CONTENT_TOO_LARGE.
               </p>
             </DocSection>
 
@@ -98,7 +117,7 @@ export default function DocsPage() {
                 <li><strong>CONTRADICTED</strong> — relevant evidence opposes the claim.</li>
                 <li>
                   <strong>INSUFFICIENT</strong> — evidence is unavailable,
-                  irrelevant, conflicting, or otherwise inadequate for a directional verdict.
+                  irrelevant, conflicting, oversized, or otherwise inadequate for a directional verdict.
                 </li>
               </ul>
             </DocSection>
@@ -106,13 +125,18 @@ export default function DocsPage() {
             <DocSection id="challenges" icon={Gavel} title="Challenge lifecycle">
               <p>
                 A challenge references a case, challenger, counter-evidence
-                URL, and explanatory note. It records the prior effective
-                verdict before consensus assesses the new evidence.
+                URL, and explanatory note. It is evaluated against the authenticated
+                original evidence snapshots rather than substituting a later webpage version.
               </p>
               <p>
-                After resolution, the challenge records its state, outcome,
-                counter assessment, revised verdict, and rationale. The case
-                clears its pending challenge reference.
+                The contract separately rechecks the live original URLs and records whether
+                each is unchanged, modified, unavailable, or too large. A modified live page
+                never replaces the evidence originally adjudicated.
+              </p>
+              <p>
+                This is a bounded counter-evidence downgrade mechanism, not complete case
+                reconsideration. One challenge may downgrade a directional verdict to
+                INSUFFICIENT, but cannot directly reverse SUPPORTED into CONTRADICTED or vice versa.
               </p>
             </DocSection>
 

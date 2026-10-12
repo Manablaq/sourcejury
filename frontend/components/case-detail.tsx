@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ArrowLeft, ExternalLink, RefreshCw, ShieldAlert } from "lucide-react";
 import { readCase, readChallenge } from "@/lib/genlayer";
 import { VerdictBadge } from "@/components/verdict-badge";
+import { EvidenceCommitmentCard } from "@/components/evidence-commitment-card";
 import { compactAddress, hostFromUrl } from "@/lib/format";
 
 export function CaseDetail({ caseId }: { caseId: number }) {
@@ -92,6 +93,14 @@ export function CaseDetail({ caseId }: { caseId: number }) {
           </a>
         </section>
 
+        <EvidenceCommitmentCard
+          title="Primary evidence commitment"
+          snapshotId={c.primary_snapshot_id}
+          status={c.primary_evidence_status}
+          digest={c.primary_content_sha256}
+          contentLength={c.primary_content_length}
+        />
+
         <section className="detail-card">
           <span className="detail-label">Corroborating source</span>
           <strong>{c.corroborating_assessment}</strong>
@@ -105,6 +114,16 @@ export function CaseDetail({ caseId }: { caseId: number }) {
             <span>No corroborating URL</span>
           )}
         </section>
+
+        {c.corroborating_url && (
+          <EvidenceCommitmentCard
+            title="Corroborating evidence commitment"
+            snapshotId={c.corroborating_snapshot_id}
+            status={c.corroborating_evidence_status}
+            digest={c.corroborating_content_sha256}
+            contentLength={c.corroborating_content_length}
+          />
+        )}
 
         <section className="detail-card">
           <span className="detail-label">Case metadata</span>
@@ -143,7 +162,26 @@ export function CaseDetail({ caseId }: { caseId: number }) {
             <div><span>Revised verdict</span><strong>{challenge.data.revised_verdict}</strong></div>
           </div>
 
+          <dl className="review-grid">
+            <div><dt>Challenge model</dt><dd>{challenge.data.challenge_mechanism || "—"}</dd></div>
+            <div><dt>Authenticated basis</dt><dd>{challenge.data.authenticated_basis_verdict || "—"}</dd></div>
+            <div><dt>Primary live source</dt><dd>{challenge.data.primary_live_status || "—"}</dd></div>
+            <div><dt>Corroborating live source</dt><dd>{challenge.data.corroborating_live_status || "—"}</dd></div>
+            <div><dt>Original source drift</dt><dd>{challenge.data.original_source_drift ? "YES" : "NO"}</dd></div>
+            <div><dt>Snapshot consistency</dt><dd>{challenge.data.original_snapshot_consistent === false ? "FAILED" : "VERIFIED"}</dd></div>
+          </dl>
+
           <p>{challenge.data.rationale || challenge.data.note}</p>
+
+          {challenge.data.counter_snapshot_id && (
+            <EvidenceCommitmentCard
+              title="Counter-evidence commitment"
+              snapshotId={challenge.data.counter_snapshot_id}
+              status={challenge.data.counter_evidence_status}
+              digest={challenge.data.counter_content_sha256}
+              contentLength={challenge.data.counter_content_length}
+            />
+          )}
 
           <a
             className="text-link"

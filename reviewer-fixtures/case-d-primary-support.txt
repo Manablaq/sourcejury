@@ -1,0 +1,4 @@
+SOURCEJURY REVIEWER FIXTURE D
+Claim: Reviewer fixture D reports status ENABLED.
+Status: ENABLED.
+Purpose: deterministic bounded primary evidence for the upheld-challenge path.

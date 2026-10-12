@@ -1,0 +1,4 @@
+SOURCEJURY REVIEWER FIXTURE B
+Claim: Reviewer fixture B reports status ENABLED.
+Status: ENABLED.
+Purpose: deterministic bounded primary evidence for the conflicting-evidence path.

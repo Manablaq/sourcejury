@@ -1,0 +1,4 @@
+SOURCEJURY REVIEWER FIXTURE A COUNTER
+Claim: Reviewer fixture A reports status ENABLED.
+Status: ENABLED.
+This counter-evidence agrees with the original claim.

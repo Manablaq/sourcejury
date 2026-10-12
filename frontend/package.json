@@ -11,7 +11,10 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "test:write-safety": "node --experimental-strip-types --test tests/write-safety.test.mts",
-    "test:e2e": "playwright test"
+    "test:evidence-commitment": "node --experimental-strip-types --test tests/evidence-commitment.test.mts",
+    "test:e2e": "playwright test",
+    "reviewer:matrix-plan": "node scripts/reviewer-live-matrix-plan.mjs",
+    "reviewer:readback": "node scripts/reviewer-live-readback.mjs"
   },
   "dependencies": {
     "@tanstack/react-query": "5.90.5",

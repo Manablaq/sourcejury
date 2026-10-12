@@ -1,3 +1,4 @@
+import hashlib
 import json
 from pathlib import Path
 
@@ -379,3 +380,104 @@ def test_challenge_limit_enforced_across_sequential_resolutions(direct_vm, direc
             "https://counter-overflow.example/evidence",
             "overflow",
         )
+
+
+# REVIEWER_EVIDENCE_PROVENANCE_V2_TESTS
+
+def test_evidence_snapshot_commitment_roundtrips_and_verifies(direct_vm, direct_deploy):
+    contract = deploy(direct_deploy)
+    case_id = create_direct_case(contract)
+    body = "Studio dev chain id is 61997 and this exact text must be committed."
+    direct_vm.mock_web(r"docs\.genlayer\.com/networks", {"status": 200, "body": body})
+    direct_vm.mock_llm(
+        r"SOURCEJURY_EVALUATE_V1",
+        llm_json(
+            primary_assessment="SUPPORTS",
+            corroborating_assessment="IRRELEVANT",
+            rationale="The source explicitly states the chain ID.",
+        ),
+    )
+
+    result = contract.evaluate_case(case_id)
+    assert direct_vm.run_validator() is True
+
+    snapshot_id = result["primary_snapshot_id"]
+    assert snapshot_id
+    assert result["primary_evidence_status"] == "AVAILABLE"
+    snapshot = contract.get_evidence_snapshot(snapshot_id)
+    assert snapshot["content"] == body
+    assert snapshot["content_length"] == len(body)
+    assert snapshot["content_sha256"] == hashlib.sha256(body.encode("utf-8")).hexdigest()
+    assert contract.verify_evidence_snapshot(snapshot_id) is True
+
+
+def test_oversized_evidence_fails_closed_without_truncation_or_llm(direct_vm, direct_deploy):
+    contract = deploy(direct_deploy)
+    case_id = create_direct_case(contract)
+    body = "x" * 8001
+    direct_vm.mock_web(r"docs\.genlayer\.com/networks", {"status": 200, "body": body})
+
+    result = contract.evaluate_case(case_id)
+    assert result["effective_verdict"] == "INSUFFICIENT"
+    assert result["primary_assessment"] == "CONTENT_TOO_LARGE"
+    assert result["primary_evidence_status"] == "CONTENT_TOO_LARGE"
+    assert result["primary_content_length"] == 8001
+    assert result["primary_content_sha256"] == hashlib.sha256(body.encode("utf-8")).hexdigest()
+    assert result["primary_snapshot_id"] == ""
+    assert direct_vm.run_validator() is True
+
+
+def test_challenge_uses_authenticated_original_snapshot_when_live_page_changes(
+    direct_vm, direct_deploy
+):
+    contract, case_id = _resolved_supported(direct_vm, direct_deploy)
+    case_before = contract.get_case(case_id)
+    snapshot_id = case_before["primary_snapshot_id"]
+    snapshot = contract.get_evidence_snapshot(snapshot_id)
+
+    challenge_id = contract.open_challenge(case_id, COUNTER, "new counter-evidence")
+    direct_vm.mock_web(
+        r"docs\.genlayer\.com/networks",
+        {"status": 200, "body": "MUTATED CURRENT PAGE THAT MUST NOT REPLACE THE SNAPSHOT"},
+    )
+    direct_vm.mock_web(r"counter\.example/evidence", {"status": 200, "body": "counter evidence"})
+    direct_vm.mock_llm(
+        r"SOURCEJURY_CHALLENGE_V1",
+        llm_json(
+            counter_assessment="CONTRADICTS",
+            rationale="The counter-evidence conflicts with the authenticated original evidence.",
+        ),
+    )
+
+    challenge = contract.resolve_challenge(challenge_id)
+    assert challenge["challenge_outcome"] == "UPHELD"
+    assert challenge["original_primary_snapshot_id"] == snapshot_id
+    assert challenge["primary_live_status"] == "MODIFIED"
+    assert challenge["original_source_drift"] is True
+    assert snapshot["content"] == "supports"
+    assert direct_vm.run_validator() is True
+
+
+def test_challenge_uses_authenticated_original_snapshot_when_live_page_unavailable(
+    direct_vm, direct_deploy
+):
+    contract, case_id = _resolved_supported(direct_vm, direct_deploy)
+    snapshot_id = contract.get_case(case_id)["primary_snapshot_id"]
+
+    challenge_id = contract.open_challenge(case_id, COUNTER, "new counter-evidence")
+    direct_vm.mock_web(r"docs\.genlayer\.com/networks", {"status": 200, "body": ""})
+    direct_vm.mock_web(r"counter\.example/evidence", {"status": 200, "body": "more support"})
+    direct_vm.mock_llm(
+        r"SOURCEJURY_CHALLENGE_V1",
+        llm_json(
+            counter_assessment="SUPPORTS",
+            rationale="The immutable original snapshot and counter evidence align.",
+        ),
+    )
+
+    challenge = contract.resolve_challenge(challenge_id)
+    assert challenge["challenge_outcome"] == "REJECTED"
+    assert challenge["original_primary_snapshot_id"] == snapshot_id
+    assert challenge["primary_live_status"] == "UNAVAILABLE"
+    assert challenge["original_source_drift"] is True
+    assert direct_vm.run_validator() is True

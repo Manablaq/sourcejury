@@ -1,0 +1,4 @@
+SOURCEJURY REVIEWER FIXTURE D COUNTER
+Claim: Reviewer fixture D reports status ENABLED.
+Status: DISABLED.
+This counter-evidence directly contradicts the original claim.

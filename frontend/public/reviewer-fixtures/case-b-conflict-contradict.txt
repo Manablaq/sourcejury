@@ -1,0 +1,4 @@
+SOURCEJURY REVIEWER FIXTURE B CONFLICT
+Claim: Reviewer fixture B reports status ENABLED.
+Status: DISABLED.
+This evidence directly contradicts the claim.

@@ -1,4 +1,5 @@
 import importlib.util
+import hashlib
 import json
 import sys
 import types
@@ -138,6 +139,7 @@ def make_contract():
     contract.challenges = StubTreeMap()
     contract.case_fingerprints = StubTreeMap()
     contract.challenge_fingerprints = StubTreeMap()
+    contract.evidence_snapshots = StubTreeMap()
     return module, env, contract
 
 
@@ -157,7 +159,7 @@ def queue_same(env, response):
 def test_protocol_info_is_bounded_and_versioned():
     module, _env, contract = make_contract()
     info = contract.get_protocol_info()
-    assert info["protocol_version"] == "sourcejury-v1"
+    assert info["protocol_version"] == "sourcejury-v2"
     assert info["policies"] == [module.DIRECT_SOURCE_V1, module.CORROBORATED_V1]
     assert info["max_claim_chars"] == 1200
     assert info["max_source_text_chars"] == 8000
@@ -535,3 +537,93 @@ def test_challenge_count_is_bounded_across_sequential_resolutions():
             "https://counter-overflow.example/evidence",
             "overflow",
         )
+
+
+# REVIEWER_EVIDENCE_PROVENANCE_V2_TESTS
+
+def test_snapshot_commitment_roundtrips_and_is_independently_verifiable():
+    module, env, contract = make_contract()
+    case_id = direct_case(contract, module)
+    body = "Studio dev chain id is 61997 and this exact text must be committed."
+    env.web["https://docs.genlayer.com/networks"] = body
+    queue_same(
+        env,
+        {
+            "primary_assessment": "SUPPORTS",
+            "corroborating_assessment": "IRRELEVANT",
+            "rationale": "The evidence supports the claim.",
+        },
+    )
+
+    case = contract.evaluate_case(case_id)
+    snapshot_id = case["primary_snapshot_id"]
+    snapshot = contract.get_evidence_snapshot(snapshot_id)
+    assert snapshot["content"] == body
+    assert snapshot["content_sha256"] == hashlib.sha256(body.encode("utf-8")).hexdigest()
+    assert snapshot["content_length"] == len(body)
+    assert contract.verify_evidence_snapshot(snapshot_id) is True
+
+
+def test_oversized_evidence_is_not_truncated_or_sent_to_llm():
+    module, env, contract = make_contract()
+    case_id = direct_case(contract, module)
+    body = "x" * (module.MAX_SOURCE_TEXT_CHARS + 1)
+    env.web["https://docs.genlayer.com/networks"] = body
+
+    case = contract.evaluate_case(case_id)
+    assert case["effective_verdict"] == module.INSUFFICIENT
+    assert case["primary_assessment"] == module.CONTENT_TOO_LARGE
+    assert case["primary_evidence_status"] == module.EVIDENCE_TOO_LARGE
+    assert case["primary_content_length"] == len(body)
+    assert case["primary_content_sha256"] == hashlib.sha256(body.encode("utf-8")).hexdigest()
+    assert case["primary_snapshot_id"] == ""
+    assert env.prompts == []
+
+
+def test_challenge_uses_immutable_snapshot_when_original_url_changes():
+    module, env, contract = make_contract()
+    case_id = resolve_supported_case(module, env, contract)
+    original_case = contract.get_case(case_id)
+    snapshot = contract.get_evidence_snapshot(original_case["primary_snapshot_id"])
+
+    counter = "https://counter.example/evidence"
+    challenge_id = contract.open_challenge(case_id, counter, "new counter-evidence")
+    env.web["https://docs.genlayer.com/networks"] = "MUTATED CURRENT PAGE"
+    env.web[counter] = "The counter-evidence contradicts the claim."
+    queue_same(
+        env,
+        {
+            "counter_assessment": "CONTRADICTS",
+            "rationale": "The counter-evidence conflicts with the authenticated snapshot.",
+        },
+    )
+
+    challenge = contract.resolve_challenge(challenge_id)
+    assert challenge["challenge_outcome"] == module.CHALLENGE_UPHELD
+    assert challenge["primary_live_status"] == module.LIVE_MODIFIED
+    assert challenge["original_source_drift"] is True
+    assert snapshot["content"] == "The claim is supported."
+    assert "The claim is supported." in env.prompts[-1]
+    assert "MUTATED CURRENT PAGE" not in env.prompts[-1]
+
+
+def test_challenge_uses_immutable_snapshot_when_original_url_is_unavailable():
+    module, env, contract = make_contract()
+    case_id = resolve_supported_case(module, env, contract)
+
+    counter = "https://counter.example/evidence"
+    challenge_id = contract.open_challenge(case_id, counter, "counter-evidence")
+    env.web["https://docs.genlayer.com/networks"] = RuntimeError("offline")
+    env.web[counter] = "The counter source also supports the claim."
+    queue_same(
+        env,
+        {
+            "counter_assessment": "SUPPORTS",
+            "rationale": "The counter evidence agrees with the authenticated snapshot.",
+        },
+    )
+
+    challenge = contract.resolve_challenge(challenge_id)
+    assert challenge["challenge_outcome"] == module.CHALLENGE_REJECTED
+    assert challenge["primary_live_status"] == module.LIVE_UNAVAILABLE
+    assert challenge["original_source_drift"] is True

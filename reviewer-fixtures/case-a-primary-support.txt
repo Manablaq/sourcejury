@@ -1,0 +1,4 @@
+SOURCEJURY REVIEWER FIXTURE A
+Claim: Reviewer fixture A reports status ENABLED.
+Status: ENABLED.
+Purpose: deterministic bounded primary evidence for the rejected-challenge path.

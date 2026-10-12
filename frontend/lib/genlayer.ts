@@ -177,7 +177,12 @@ export async function executeSourceJuryWrite({
   onStage("submitted", txHash);
   onStage("finalizing", txHash);
 
-  const receipt = await readClient.waitForFinalization({ hash: txHash });
+  const receipt = await readClient.waitForFinalization({
+    hash: txHash,
+    interval: 3000,
+    retries: 240,
+    fullTransaction: true
+  });
 
   if (
     receipt.txExecutionResultName !== ExecutionResult.FINISHED_WITH_RETURN

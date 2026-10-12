@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import {
   Check,
   ChevronDown,
@@ -39,7 +40,11 @@ export function WalletControl() {
           <WalletCards size={17} />
           Connect wallet
         </button>
-        {open && <WalletSheet onClose={() => setOpen(false)} />}
+        {open && typeof document !== "undefined" &&
+          createPortal(
+            <WalletSheet onClose={() => setOpen(false)} />,
+            document.body
+          )}
       </>
     );
   }
@@ -58,9 +63,10 @@ export function WalletControl() {
         <ChevronDown size={15} />
       </button>
 
-      {open && (
-        <div
-          className="sheet-backdrop"
+      {open && typeof document !== "undefined" &&
+        createPortal(
+          <div
+            className="sheet-backdrop"
           onMouseDown={() => setOpen(false)}
           role="presentation"
         >
@@ -162,7 +168,8 @@ export function WalletControl() {
               inside your wallet provider.
             </p>
           </section>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );

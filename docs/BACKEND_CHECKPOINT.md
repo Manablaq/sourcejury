@@ -12,7 +12,10 @@ Backend implementation and reviewer-remediation Studio Devnet certification are 
 - Contract: `0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE`
 - Contract source SHA-256: `004ad1ffc4432326a61bef0b7391cb33ec813b3d7578bba63d352fd841f03b5b`
 - Reviewer release commit: `82efeb441ce20484e72518382bda1a175facf9d4`
-- Production frontend commit: `850195e6b4d36afa6b2964abb85169ab8c19325a`
+- Production deployment observed after `main` promotion: `dpl_EivdtWBXmtaH5Rgpj8LH3bWKy82n`
+- Repository commit served by that deployment: `ab52041713ba756ca332e1372cfdbf637bc843c4`
+- Certified reviewer-matrix deployment: `dpl_Hv47YCFo5aHPKibiNS9K8DNhCya7`
+- Certified reviewer-matrix frontend commit: `850195e6b4d36afa6b2964abb85169ab8c19325a`
 - Production frontend: `https://sourcejury.vercel.app`
 - Finalized case count: `4`
 - Finalized challenge count: `2`
@@ -20,7 +23,7 @@ Backend implementation and reviewer-remediation Studio Devnet certification are 
 - Finalized readback raw SHA-256: `e2f4d0f647805193c797026981b3e57076d4d4c3229a5132bab2d8eb1b8aec70`
 - Final validation summary SHA-256: `563c842a1a68357b96bf1260798ce29a92a0bff2af94204b2bbb4664b047eb36`
 
-The deployed reviewer-remediation backend is the frozen hardened contract source bound to the reviewer release. The later authorized frontend fixes do not alter the contract source.
+The deployed reviewer-remediation backend is the frozen hardened contract source bound to the reviewer release. The later authorized frontend fixes do not alter the contract source. The 12-write reviewer matrix was executed against deployment `dpl_Hv47YCFo5aHPKibiNS9K8DNhCya7` at frontend commit `850195e6b4d36afa6b2964abb85169ab8c19325a`. The subsequent repository-only documentation/evidence synchronization commit `ab52041713ba756ca332e1372cfdbf637bc843c4` changed no frontend application code and was served as production deployment `dpl_EivdtWBXmtaH5Rgpj8LH3bWKy82n` after the `main` promotion. A later metadata-only automatic production rebuild does not change the certified frontend application-code binding.
 
 ## Implemented
 

@@ -7,11 +7,13 @@ SourceJury is implemented against the certified GenLayer Studio Devnet backend a
 - Frontend progress: `7/7 COMPLETE`
 - Production URL: `https://sourcejury.vercel.app`
 - Vercel project ID: `prj_EKEh2yKQ1l5YRgbhWfortzgw4w8M`
-- Reviewer-remediation production deployment: `dpl_Hv47YCFo5aHPKibiNS9K8DNhCya7`
-- Deployment state: `READY`
+- Production deployment observed after `main` promotion: `dpl_EivdtWBXmtaH5Rgpj8LH3bWKy82n`
+- Observed deployment state: `READY`
+- Repository commit served by that deployment: `ab52041713ba756ca332e1372cfdbf637bc843c4`
+- Certified reviewer-matrix deployment: `dpl_Hv47YCFo5aHPKibiNS9K8DNhCya7`
+- Certified reviewer-matrix frontend commit: `850195e6b4d36afa6b2964abb85169ab8c19325a`
 - Reviewer release commit: `82efeb441ce20484e72518382bda1a175facf9d4`
 - Wallet-overlay fix commit: `394f3229b33ca58f444cf7d332d843a92efb93c4`
-- Production frontend commit: `850195e6b4d36afa6b2964abb85169ab8c19325a`
 - Bound reviewer-remediation contract: `0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE`
 - Finalized reviewer case count: `4`
 - Finalized reviewer challenge count: `2`
@@ -40,10 +42,11 @@ SourceJury is implemented against the certified GenLayer Studio Devnet backend a
 - Contract: `0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE`
 - Contract source SHA-256: `004ad1ffc4432326a61bef0b7391cb33ec813b3d7578bba63d352fd841f03b5b`
 - Reviewer release commit: `82efeb441ce20484e72518382bda1a175facf9d4`
-- Production frontend commit: `850195e6b4d36afa6b2964abb85169ab8c19325a`
+- Repository commit served by the post-promotion production deployment: `ab52041713ba756ca332e1372cfdbf637bc843c4`
+- Certified reviewer-matrix frontend commit: `850195e6b4d36afa6b2964abb85169ab8c19325a`
 - Finalized reads: `TransactionHashVariant.LATEST_FINAL`
 
-The production frontend is bound to the reviewer-remediation contract and does not substitute locally fabricated verdicts when live RPC reads fail. The finality waiter on the production frontend uses an explicit extended polling budget so accepted GenLayer transactions are not incorrectly reported as failed merely because they exceed the SDK's short default wait window.
+The production application remains bound to the reviewer-remediation contract and does not substitute locally fabricated verdicts when live RPC reads fail. The post-promotion deployment's frontend application code is unchanged from the certified reviewer-matrix frontend commit `850195e6b4d36afa6b2964abb85169ab8c19325a`. The finality waiter uses an explicit extended polling budget so accepted GenLayer transactions are not incorrectly reported as failed merely because they exceed the SDK's short default wait window.
 
 ## Certified browser QA
 
@@ -91,7 +94,7 @@ The browser suite uses an injected mock wallet for write-flow interaction testin
 
 ## Reviewer-remediation production certification
 
-The production frontend was used to execute the explicitly authorized 12-write reviewer matrix against `0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE`.
+Certified reviewer-matrix deployment `dpl_Hv47YCFo5aHPKibiNS9K8DNhCya7` from frontend commit `850195e6b4d36afa6b2964abb85169ab8c19325a` was used to execute the explicitly authorized 12-write reviewer matrix against `0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE`. Production deployment `dpl_EivdtWBXmtaH5Rgpj8LH3bWKy82n` at repository commit `ab52041713ba756ca332e1372cfdbf637bc843c4` was created later by the `main` promotion and contains no frontend application-code changes relative to that certified matrix frontend. This final metadata-only synchronization may trigger a further automatic production rebuild; such a rebuild does not alter the certified matrix execution or frontend application-code lineage.
 
 The final authoritative `LATEST_FINAL` certification confirmed:
 
@@ -124,6 +127,6 @@ No additional blockchain transaction, funding operation, signing operation, cont
 
 `SOURCEJURY_FRONTEND_STATUS=COMPLETE`
 
-The production frontend is live at `https://sourcejury.vercel.app`, is bound to contract `0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE`, and is deployed from production frontend commit `850195e6b4d36afa6b2964abb85169ab8c19325a`.
+The production frontend is live at `https://sourcejury.vercel.app` and is bound to contract `0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE`. After the `main` promotion, deployment `dpl_EivdtWBXmtaH5Rgpj8LH3bWKy82n` served repository commit `ab52041713ba756ca332e1372cfdbf637bc843c4`. The completed reviewer matrix remains certified against deployment `dpl_Hv47YCFo5aHPKibiNS9K8DNhCya7` and frontend commit `850195e6b4d36afa6b2964abb85169ab8c19325a`. Any automatic deployment caused solely by this final documentation synchronization is reconciled externally and does not redefine the matrix certification.
 
 The immutable primary reviewer fixtures and hardened reviewer release remain bound to commit `82efeb441ce20484e72518382bda1a175facf9d4`. Final reviewer-remediation evidence is retained under `evidence/reviewer-remediation-final/`.

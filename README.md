@@ -13,8 +13,10 @@ SourceJury also supports bounded counter-evidence challenges. Challenges are del
 ## Production deployment
 
 - Frontend: `https://sourcejury.vercel.app`
-- Production deployment: `dpl_Hv47YCFo5aHPKibiNS9K8DNhCya7`
-- Production frontend commit: `850195e6b4d36afa6b2964abb85169ab8c19325a`
+- Production deployment observed after `main` promotion: `dpl_EivdtWBXmtaH5Rgpj8LH3bWKy82n`
+- Repository commit served by that deployment: `ab52041713ba756ca332e1372cfdbf637bc843c4`
+- Certified reviewer-matrix deployment: `dpl_Hv47YCFo5aHPKibiNS9K8DNhCya7`
+- Certified reviewer-matrix frontend commit: `850195e6b4d36afa6b2964abb85169ab8c19325a`
 - Reviewer release commit: `82efeb441ce20484e72518382bda1a175facf9d4`
 - Network: GenLayer Studio Devnet
 - Chain ID: `61997`
@@ -28,7 +30,7 @@ SourceJury also supports bounded counter-evidence challenges. Challenges are del
 - Finalized `LATEST_FINAL` readback SHA-256: `e2f4d0f647805193c797026981b3e57076d4d4c3229a5132bab2d8eb1b8aec70`
 - Final validation summary SHA-256: `563c842a1a68357b96bf1260798ce29a92a0bff2af94204b2bbb4664b047eb36`
 
-The production frontend is bound to the reviewer-remediation contract above. Primary reviewer fixtures remain pinned to the immutable reviewer release commit `82efeb441ce20484e72518382bda1a175facf9d4`. The authorized later frontend-only fixes culminate in production frontend commit `850195e6b4d36afa6b2964abb85169ab8c19325a` and do not change the hardened contract source.
+The certified reviewer matrix was executed from deployment `dpl_Hv47YCFo5aHPKibiNS9K8DNhCya7` at frontend commit `850195e6b4d36afa6b2964abb85169ab8c19325a` against the reviewer-remediation contract above. Primary reviewer fixtures remain pinned to the immutable reviewer release commit `82efeb441ce20484e72518382bda1a175facf9d4`. The later repository-only documentation/evidence synchronization commit `ab52041713ba756ca332e1372cfdbf637bc843c4` changed no frontend application code; after promotion to `main`, Vercel rebuilt that same frontend application as deployment `dpl_EivdtWBXmtaH5Rgpj8LH3bWKy82n`. This final metadata-only synchronization may trigger a subsequent automatic Vercel production rebuild; its resulting deployment ID is intentionally not embedded in the same commit to avoid self-referential release metadata.
 
 The production application reads durable court state using GenLayer finalized-state semantics. It does not invent verdicts when RPC reads fail.
 
@@ -221,6 +223,6 @@ Do not set the authorization variable merely to get around the gate.
 
 Backend implementation, reviewer-remediation hardening, frontend implementation, production deployment, the frontend-driven 12-write Studio Devnet reviewer matrix, authoritative `LATEST_FINAL` readback, and independent evidence-snapshot verification are complete.
 
-The reviewer release is bound to commit `82efeb441ce20484e72518382bda1a175facf9d4` and contract `0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE`. The production frontend is bound to commit `850195e6b4d36afa6b2964abb85169ab8c19325a` at `https://sourcejury.vercel.app`.
+The reviewer release is bound to commit `82efeb441ce20484e72518382bda1a175facf9d4` and contract `0x6Dbe8007192EF981a61fFf540d873F03cD8E3BaE`. The 12-write reviewer matrix was certified against frontend commit `850195e6b4d36afa6b2964abb85169ab8c19325a` and deployment `dpl_Hv47YCFo5aHPKibiNS9K8DNhCya7`. After the repository promotion, production deployment `dpl_EivdtWBXmtaH5Rgpj8LH3bWKy82n` served repository commit `ab52041713ba756ca332e1372cfdbf637bc843c4`; no frontend application code changed between the certified matrix frontend and that repository commit. The production domain remains `https://sourcejury.vercel.app`, while later metadata-only automatic rebuilds are reconciled externally rather than recursively hard-coded into the commit that triggers them.
 
 The final reviewer-remediation evidence package is retained under `evidence/reviewer-remediation-final/`. No additional Studio Devnet write is authorized by this repository checkpoint.
